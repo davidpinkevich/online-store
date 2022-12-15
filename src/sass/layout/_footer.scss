@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 15px;
+    color: $mainColor;
+    font-size: $mainSize;
+    a {
+        color: $mainColor;
+    }
+}
