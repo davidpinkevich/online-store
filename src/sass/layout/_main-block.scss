@@ -1,0 +1,74 @@
+.main {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 75vh;
+    gap: 10px;
+}
+// левая панель с фильтрами
+.filter {
+    flex: 0 1 400px;
+    // padding: 0px 20px;
+    font-family: $mainFontFamily;
+    color: $mainColor;
+    & > *:not(:last-child) {
+        margin-bottom: 10px;
+    }
+}
+.lel {
+    color: $mainColor;
+}
+.filter__category {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
+    &-items {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &-title {
+        font-size: $mainSize;
+        margin-bottom: 10px;
+    }
+}
+
+.filter__brand {
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
+    &-items {
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    &-title {
+        font-size: $mainSize;
+        margin-bottom: 10px;
+    }
+}
+
+// правый блок, где будут все карточки
+.main__items {
+    flex: 1 1 auto;
+    color: $mainColor;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    &-search {
+        box-shadow: inset 0px 0px 3px 3px black;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    &-body {
+        box-shadow: inset 0px 0px 3px 3px black;
+        border-radius: 8px;
+        padding: 10px;
+        flex: 1 1 auto;
+    }
+}
