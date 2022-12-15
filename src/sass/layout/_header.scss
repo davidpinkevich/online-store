@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-family: $mainFontFamily;
+    font-size: 24px;
+    color: $mainColor;
+    box-shadow: inset 0px 0px 3px 3px black;
+    border-radius: 8px;
+    background-color: rgb(47, 46, 46);
+    a {
+        color: $mainColor;
+    }
+}
