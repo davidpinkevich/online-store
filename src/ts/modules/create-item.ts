@@ -127,6 +127,78 @@ class Product implements IItemClass {
       }
     });
   }
+
+  render() {
+    const div = document.createElement("div");
+    div.classList.add("good");
+    div.innerHTML = `
+    <section class="good__navigation">
+        <span class="good__store"><a href="/" class="good__link" data-navigo>STORE</a></span>
+        <span class="good__more">>></span>
+        <span class="good__category">${this._category}</span>
+        <span class="good__more">>></span>
+        <span class="good__brand">${this._brand}</span>
+        <span class="good__more">>></span>
+        <span class="good__model">${this._title} 9</span>
+    </section>
+
+    <section class="good-item">
+        <h1>${this._title}</h1>
+        <hr>
+        <div class="good-item__content">
+            <div class="good-item__photos">
+                <img src="${this._images[0]}" alt="main"
+                    class="good-item__photo">
+                <div class="good-item__slides">
+                    <img class="good-item__main-photo good-item__photo_small good-item__photo_active" src="${this._images[0]}" alt="main">
+                    <img class="good-item__main-photo good-item__photo_small" src="${this._images[1]}" alt="second">
+                    <img class="good-item__main-photo good-item__photo_small" src="${this._images[2]}" alt="third">
+                </div>
+            </div>
+            <div class="good-item__descr">
+                <div class="good-item__name">
+                    <h2>Description:</h2>
+                    <hr>
+                    <p>${this._description}</p>
+                </div>
+                <div class="good-item__name">
+                    <h2>Discount Percentage:</h2>
+                    <hr>
+                    <p>${this._discountPercentage}</p>
+                </div>
+                <div class="good-item__name">
+                    <h2>Rating:</h2>
+                    <hr>
+                    <p>${this._rating}</p>
+                </div>
+                <div class="good-item__name">
+                    <h2>Stock:</h2>
+                    <hr>
+                    <p>${this._stock}</p>
+                </div>
+                <div class="good-item__name">
+                    <h2>Brand:</h2>
+                    <hr>
+                    <p>${this._brand}</p>
+                </div>
+                <div class="good-item__name">
+                    <h2>Category:</h2>
+                    <hr>
+                    <p>${this._category}</p>
+                </div>
+            </div>
+            <div class="good-item__control">
+                <div class="good-item__price">€${this._price}</div>
+                <button class="button button__add button__add_active">ADD TO CART</button>
+                <button class="button button__drop">DROP FROM CART</button>
+                <button class="button button__buy">BYU NOW</button>
+            </div>
+        </div>
+    </section>
+    `;
+    const root = document.querySelector(".good");
+    root?.append(div);
+  }
 }
 
 export default Product;
