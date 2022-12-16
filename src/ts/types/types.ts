@@ -25,6 +25,7 @@ export interface IItemClass {
   _thumbnail: string;
   _images: string[];
   rendore(link: string, appendPath: HTMLElement): void;
+  render(): void;
 }
 
 export interface ICartItems {
