@@ -3,4 +3,54 @@
     box-shadow: inset 0px 0px 3px 3px black;
     border-radius: 8px;
     padding: 10px;
+
+    &__add {
+        display: none;
+        width: 250px;
+        height: 50px;    
+        color: $mainColor;
+        background-color: $secondColor;
+        text-transform: uppercase;
+    
+        &:hover {
+            background-color: darken($secondColor, 5);
+        }
+    
+
+        &_active {
+            display: block;
+        }
+    }
+
+    &__drop {
+        display: none;
+        width: 250px;
+        height: 50px;
+        color: $mainColor;
+        background-color: $secondColor;
+        text-transform: uppercase;
+    
+        &:hover {
+            background-color: darken($secondColor, 5);
+        }
+    
+
+        &_active {
+            display: block;
+        }
+    }
+
+    &__buy {
+        display: block;
+        width: 250px;
+        height: 50px;
+        color: $mainColor;
+        background-color: $secondColor;
+        text-transform: uppercase;
+    
+        &:hover {
+            background-color: darken($secondColor, 5);
+        }
+    
+    }
 }
