@@ -1,5 +1,6 @@
 import { TGoodsData } from "../types/types";
 import { IItemClass } from "../types/types";
+import { ICartItems } from "../types/types";
 
 class Product implements IItemClass {
   public _id: number;
@@ -29,17 +30,9 @@ class Product implements IItemClass {
   }
 
   rendore(link: string, appendPath: HTMLElement): void {
-    //обвернуть в ссылку
-    const bodyLink = document.createElement("a");
-    bodyLink.href = `${link}`;
-    bodyLink.setAttribute("data-navigo", "");
-    bodyLink.setAttribute("id", `${this._id}`);
-    bodyLink.classList.add("product-link");
-    appendPath.append(bodyLink);
-    //-----------------
     const bodyItem = document.createElement("div");
     bodyItem.classList.add("product");
-    bodyLink.append(bodyItem);
+    appendPath.append(bodyItem);
 
     const bodyItemTitle = document.createElement("h2");
     bodyItemTitle.classList.add("product__title");
@@ -92,9 +85,47 @@ class Product implements IItemClass {
     // блок с кнопками
     const buttonBlocks = document.createElement("div");
     buttonBlocks.classList.add("buttons__body");
-    buttonBlocks.innerHTML =
-      '<button class = "button__body-add">add to cart</button><button class = "button__body-info">information</button>';
+    const buttonAdd = document.createElement("button");
+    buttonAdd.classList.add("button__body-add");
+    buttonAdd.innerHTML = "add to cart";
+
+    // ссылка на кнопке одного товара
+    const itemLink = document.createElement("a");
+    itemLink.classList.add("button__body-link");
+    itemLink.href = `${link}`;
+    itemLink.setAttribute("data-navigo", "");
+    //-----------------------------------
+    const buttonInfo = document.createElement("button");
+    buttonInfo.classList.add("button__body-info");
+    buttonInfo.innerHTML = "information";
+    itemLink.setAttribute("id", `${this._id}`);
+    itemLink.append(buttonInfo);
+    buttonBlocks.append(buttonAdd, itemLink);
     bodyItemMain.append(buttonBlocks);
+    //добавляем local storage для корзины
+
+    buttonAdd.addEventListener("click", () => {
+      const lsCart = localStorage.getItem("cart-storage");
+      if (!lsCart) {
+        const arrItemsCart: ICartItems[] = [];
+        const objItemsCart: ICartItems = {
+          id: this._id,
+          count: 1,
+          price: this._price,
+        };
+        arrItemsCart.push(objItemsCart);
+        localStorage.setItem("cart-storage", JSON.stringify(arrItemsCart));
+      } else {
+        const objItemsCart: ICartItems = {
+          id: this._id,
+          count: 1,
+          price: this._price,
+        };
+        const addItem = JSON.parse(localStorage.getItem("cart-storage") || "");
+        addItem.push(objItemsCart);
+        localStorage.setItem("cart-storage", JSON.stringify(addItem));
+      }
+    });
   }
 }
 

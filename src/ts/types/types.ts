@@ -26,3 +26,9 @@ export interface IItemClass {
   _images: string[];
   rendore(link: string, appendPath: HTMLElement): void;
 }
+
+export interface ICartItems {
+  id: number;
+  count: number;
+  price: number;
+}
