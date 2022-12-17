@@ -1,6 +1,7 @@
 import { TGoodsData } from "../types/types";
 import { IItemClass } from "../types/types";
 import { ICartItems } from "../types/types";
+import { mainCost } from "./total-cost";
 
 class Product implements IItemClass {
   public _id: number;
@@ -139,7 +140,6 @@ class Product implements IItemClass {
       if (!buttonAdd.classList.contains("active") && lsCart !== null) {
         buttonAdd.innerHTML = "add to cart";
         console.log(JSON.parse(lsCart));
-        // const kek = JSON.parse(lsCart || "");
         const newArr: ICartItems[] | null = [];
         JSON.parse(lsCart).forEach((item: ICartItems) => {
           console.log(item.id);
@@ -150,15 +150,8 @@ class Product implements IItemClass {
         localStorage.setItem("cart-storage", JSON.stringify(newArr || ""));
       } else {
         buttonAdd.innerHTML = "from cart";
-        // const kek = JSON.parse(lsCart || "");
-        // let newArr: ICartItems[] | null = [];
-        // kek.forEach((item: ICartItems, index: number) => {
-        //   if (item && item.id === this._id) {
-        //     newArr = kek.splice(index, 1);
-        //   }
-        // });
-        // localStorage.setItem("cart-storage", JSON.stringify(newArr || ""));
       }
+      mainCost();
     });
   }
 
@@ -184,9 +177,9 @@ class Product implements IItemClass {
                 <img src="${this._images[0]}" alt="main"
                     class="good-item__photo">
                 <div class="good-item__slides">
-                    <img class="good-item__main-photo good-item__photo_small good-item__photo_active" src="${this._images[0]}" alt="main">
-                    <img class="good-item__main-photo good-item__photo_small" src="${this._images[1]}" alt="second">
-                    <img class="good-item__main-photo good-item__photo_small" src="${this._images[2]}" alt="third">
+                    <img class="good-item__main-photo good-item__photo-small good-item__photo-active" src="${this._images[0]}" alt="main">
+                    <img class="good-item__main-photo good-item__photo-small" src="${this._images[1]}" alt="second">
+                    <img class="good-item__main-photo good-item__photo-small" src="${this._images[2]}" alt="third">
                 </div>
             </div>
             <div class="good-item__descr">
@@ -223,13 +216,14 @@ class Product implements IItemClass {
             </div>
             <div class="good-item__control">
                 <div class="good-item__price">€${this._price}</div>
-                <button class="button button__add button__add_active">ADD TO CART</button>
+                <button class="button button__add button__add-active">ADD TO CART</button>
                 <button class="button button__drop">DROP FROM CART</button>
                 <button class="button button__buy">BYU NOW</button>
             </div>
         </div>
     </section>
     `;
+    //-----------------------------------------------------
     const root = document.querySelector(".good");
     root?.append(div);
   }
