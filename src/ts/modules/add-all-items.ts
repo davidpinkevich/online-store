@@ -1,6 +1,7 @@
 import { TGoodsData } from "../types/types";
 import Product from "./create-item";
 import { mainCost } from "./total-cost";
+import { createCart } from "./cart/cart-block";
 
 export function createAllItems(items: TGoodsData[]): void {
   items.forEach((item) => {
@@ -10,6 +11,8 @@ export function createAllItems(items: TGoodsData[]): void {
     );
   });
   mainCost();
+  const linkForCart = <HTMLElement>document.querySelector(".basket__basket");
+  linkForCart.addEventListener("click", createCart);
 }
 
 export const createGood = (item: TGoodsData) => {
