@@ -110,6 +110,7 @@ class Product implements IItemClass {
       JSON.parse(lsCartMain || "").forEach((item: ICartItems) => {
         if (item.id === this._id) {
           buttonAdd.classList.add("active");
+          buttonAdd.innerHTML = "from cart";
         }
       });
     }
