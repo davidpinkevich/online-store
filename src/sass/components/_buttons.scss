@@ -54,3 +54,24 @@
     
     }
 }
+
+// кнопки добавить/удалить товар и инфрмация о товаре на основных карточках
+.button__body-info,
+.button__body-add {
+  text-transform: uppercase;
+  display: flex;
+  border-radius: 8px;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #8e600a;
+  color: $mainColor;
+  box-shadow: inset 0px 0px 3px 3px black;
+  text-shadow: 2px 2px 2px black;
+  transition: all 0.3s;
+}
+
+.button__body-add.active {
+    background-color: #543907;
+}
