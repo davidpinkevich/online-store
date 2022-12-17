@@ -3,12 +3,12 @@ const changeMainPhoto = () => {
     ".good-item__photo"
   ) as HTMLImageElement;
   const otherPhotos: NodeListOf<HTMLImageElement> = document.querySelectorAll(
-    ".good-item__photo_small"
+    ".good-item__photo-small"
   );
 
   const removeActiveClass = () => {
     otherPhotos.forEach((photo) => {
-      photo.classList.remove("good-item__photo_active");
+      photo.classList.remove("good-item__photo-active");
     });
   };
 
@@ -16,7 +16,7 @@ const changeMainPhoto = () => {
     photo.addEventListener("click", () => {
       mainPhoto.src = photo.src;
       removeActiveClass();
-      photo.classList.add("good-item__photo_active");
+      photo.classList.add("good-item__photo-active");
     });
   });
 };

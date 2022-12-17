@@ -1,7 +1,7 @@
 import Navigo from "navigo";
 import { goodsData } from "../data/goodsData";
 import { createAllItems, createGood } from "./add-all-items";
-import changeMainPhoto from "./changeMainPhoto";
+import changeMainPhoto from "./change-main-photo";
 
 const navigo = new Navigo("/", { hash: true });
 

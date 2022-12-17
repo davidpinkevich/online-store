@@ -1,4 +1,4 @@
-import changeMainPhoto from "./modules/changeMainPhoto";
+import changeMainPhoto from "./modules/change-main-photo";
 import "./modules/route";
 
 import "../sass/main.scss";
