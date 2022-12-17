@@ -14,4 +14,5 @@ export function createAllItems(items: TGoodsData[]): void {
 
 export const createGood = (item: TGoodsData) => {
   new Product(item).render();
+  mainCost();
 };
