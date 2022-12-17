@@ -1,5 +1,6 @@
 import { TGoodsData } from "../types/types";
 import Product from "./create-item";
+import { mainCost } from "./total-cost";
 
 export function createAllItems(items: TGoodsData[]): void {
   items.forEach((item) => {
@@ -8,6 +9,7 @@ export function createAllItems(items: TGoodsData[]): void {
       <HTMLElement>document.querySelector(".main__items-body")
     );
   });
+  mainCost();
 }
 
 export const createGood = (item: TGoodsData) => {
