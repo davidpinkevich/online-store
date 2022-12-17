@@ -56,8 +56,31 @@ navigo
     root.innerHTML = `<div class="good __container"></div>`;
     if (id) {
       const num = +id;
+      if (num > 100) {
+        root.innerHTML = `
+        <div class="error __container">
+        <img src="https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000"
+            alt="404 error" class="error__img">
+        <h1>Not Found</h1>
+        <h2>Good number ${id} does not exist</h2>
+        <a href="/" class="error__link" data-navigo>Back to store</a>
+    </div>
+        `;
+        return;
+      }
       createGood(goodsData[num - 1]);
     }
     changeMainPhoto();
+  })
+  .notFound(() => {
+    root.innerHTML = `
+    <div class="error __container">
+    <img src="https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000"
+        alt="404 error" class="error__img">
+    <h1>Not Found</h1>
+    <h2>This resource could not be Found on this server</h2>
+    <a href="/" class="error__link" data-navigo>Back to store</a>
+</div>
+    `;
   })
   .resolve();
