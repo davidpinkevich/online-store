@@ -24,7 +24,7 @@ export interface IItemClass {
   _category: string;
   _thumbnail: string;
   _images: string[];
-  rendore(link: string, appendPath: HTMLElement): void;
+  createItem(link: string, appendPath: HTMLElement): void;
   render(): void;
 }
 

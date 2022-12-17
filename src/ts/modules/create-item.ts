@@ -29,7 +29,7 @@ class Product implements IItemClass {
     this._images = item.images;
   }
 
-  rendore(link: string, appendPath: HTMLElement): void {
+  createItem(link: string, appendPath: HTMLElement): void {
     const bodyItem = document.createElement("div");
     bodyItem.classList.add("product");
     appendPath.append(bodyItem);
@@ -102,10 +102,20 @@ class Product implements IItemClass {
     itemLink.append(buttonInfo);
     buttonBlocks.append(buttonAdd, itemLink);
     bodyItemMain.append(buttonBlocks);
+    // проверка на добавление товара в корзину, чтобы кнопка светилась как надо
+    //при обновлении страницы
+    const lsCartMain = localStorage.getItem("cart-storage");
+    if (lsCartMain && JSON.parse(lsCartMain || "").length > 0) {
+      JSON.parse(lsCartMain || "").forEach((item: ICartItems) => {
+        if (item.id === this._id) {
+          buttonAdd.classList.add("active");
+        }
+      });
+    }
     //добавляем local storage для корзины
-
     buttonAdd.addEventListener("click", () => {
       const lsCart = localStorage.getItem("cart-storage");
+      buttonAdd.classList.toggle("active");
       if (!lsCart) {
         const arrItemsCart: ICartItems[] = [];
         const objItemsCart: ICartItems = {
@@ -124,6 +134,30 @@ class Product implements IItemClass {
         const addItem = JSON.parse(localStorage.getItem("cart-storage") || "");
         addItem.push(objItemsCart);
         localStorage.setItem("cart-storage", JSON.stringify(addItem));
+      }
+      // попытка удалять элементы из стореджа
+      if (!buttonAdd.classList.contains("active") && lsCart !== null) {
+        buttonAdd.innerHTML = "add to cart";
+        console.log(JSON.parse(lsCart));
+        // const kek = JSON.parse(lsCart || "");
+        const newArr: ICartItems[] | null = [];
+        JSON.parse(lsCart).forEach((item: ICartItems) => {
+          console.log(item.id);
+          if (item && item.id !== this._id) {
+            newArr?.push(item);
+          }
+        });
+        localStorage.setItem("cart-storage", JSON.stringify(newArr || ""));
+      } else {
+        buttonAdd.innerHTML = "from cart";
+        // const kek = JSON.parse(lsCart || "");
+        // let newArr: ICartItems[] | null = [];
+        // kek.forEach((item: ICartItems, index: number) => {
+        //   if (item && item.id === this._id) {
+        //     newArr = kek.splice(index, 1);
+        //   }
+        // });
+        // localStorage.setItem("cart-storage", JSON.stringify(newArr || ""));
       }
     });
   }

@@ -3,7 +3,7 @@ import Product from "./create-item";
 
 export function createAllItems(items: TGoodsData[]): void {
   items.forEach((item) => {
-    new Product(item).rendore(
+    new Product(item).createItem(
       `/good/${item.id}`,
       <HTMLElement>document.querySelector(".main__items-body")
     );
