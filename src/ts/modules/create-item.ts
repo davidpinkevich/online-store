@@ -116,7 +116,11 @@ class Product implements IItemClass {
     //добавляем local storage для корзины
     buttonAdd.addEventListener("click", () => {
       const lsCart = localStorage.getItem("cart-storage");
-      buttonAdd.classList.toggle("active");
+      if (buttonAdd.classList.contains("active")) {
+        buttonAdd.classList.remove("active");
+      } else {
+        buttonAdd.classList.add("active");
+      }
       if (!lsCart) {
         const arrItemsCart: ICartItems[] = [];
         const objItemsCart: ICartItems = {
@@ -136,7 +140,7 @@ class Product implements IItemClass {
         addItem.push(objItemsCart);
         localStorage.setItem("cart-storage", JSON.stringify(addItem));
       }
-      // попытка удалять элементы из стореджа
+      // удалять элементы из стореджа
       if (!buttonAdd.classList.contains("active") && lsCart !== null) {
         buttonAdd.innerHTML = "add to cart";
         console.log(JSON.parse(lsCart));
