@@ -51,7 +51,11 @@ export const goodsData: TGoodsData[] = [
     brand: "Samsung",
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-    images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
+    images: [
+      "https://i.dummyjson.com/data/products/3/1.jpg",
+      "https://3dnews.ru/assets/external/illustrations/2010/10/13/600095/kin-two-one.jpg",
+      "https://i5.walmartimages.com/asr/6072519a-c73e-4638-8ea9-639b2a50a7c9_1.4bcec68b636d88880304d45216e97fc6.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+    ],
   },
   {
     id: 4,
@@ -766,6 +770,7 @@ export const goodsData: TGoodsData[] = [
     thumbnail: "https://i.dummyjson.com/data/products/40/thumbnail.jpg",
     images: [
       "https://i.dummyjson.com/data/products/40/1.jpg",
+      "https://img.five-sport.ru/images/products/1/1083/319349819/Mizuno_Heritage_Sweat_%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D1%81%D1%82%D1%8E%D0%BC_%D0%B6%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_black_3.jpg",
       "https://i.dummyjson.com/data/products/40/2.jpg",
     ],
   },
@@ -1193,6 +1198,7 @@ export const goodsData: TGoodsData[] = [
     images: [
       "https://i.dummyjson.com/data/products/62/1.jpg",
       "https://i.dummyjson.com/data/products/62/2.jpg",
+      "https://ae01.alicdn.com/kf/H2c7437e05c0d49a483d18c5bb2089bdaD/2022-New-Mens-Watches-LIGE-Top-Brand-Leather-Chronograph-Waterproof-Sport-Automatic-Date-Quartz-Watch-For.jpg_Q90.jpg_.webp",
     ],
   },
   {
@@ -1307,6 +1313,7 @@ export const goodsData: TGoodsData[] = [
     images: [
       "https://i.dummyjson.com/data/products/68/1.jpg",
       "https://i.dummyjson.com/data/products/68/2.jpg",
+      "https://static-01.daraz.pk/p/ba46601aab93c8d9c530bad07a1c04ee.jpg",
     ],
   },
   {
@@ -1493,7 +1500,11 @@ export const goodsData: TGoodsData[] = [
     brand: "Fashion Jewellery",
     category: "womens-jewellery",
     thumbnail: "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
-    images: ["https://i.dummyjson.com/data/products/78/thumbnail.jpg"],
+    images: [
+      "https://i.dummyjson.com/data/products/78/thumbnail.jpg",
+      "https://i.etsystatic.com/38561267/r/il/4f6a65/4337070361/il_fullxfull.4337070361_5l9v.jpg",
+      "https://i.etsystatic.com/38294815/r/il/49419d/4302583826/il_fullxfull.4302583826_qz8j.jpg",
+    ],
   },
   {
     id: 79,
@@ -1507,7 +1518,11 @@ export const goodsData: TGoodsData[] = [
     brand: "Fashion Jewellery",
     category: "womens-jewellery",
     thumbnail: "https://i.dummyjson.com/data/products/79/thumbnail.jpg",
-    images: ["https://i.dummyjson.com/data/products/79/1.jpg"],
+    images: [
+      "https://i.dummyjson.com/data/products/79/1.jpg",
+      "https://ae01.alicdn.com/kf/Sa39eb7250cf14b05b0277216baf57b78v/Elegant-Female-Pearl-Earrings-Accessories.jpg",
+      "https://i.ebayimg.com/images/g/UNMAAOSwijNiJWfz/s-l500.jpg",
+    ],
   },
   {
     id: 80,
