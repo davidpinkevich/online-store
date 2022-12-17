@@ -1,0 +1,41 @@
+
+.products__body {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    min-height: 75vh;
+}
+
+.products {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    width: 1000px;
+
+    &__title {
+        padding: 15px;
+        color: $secondColor;
+        font-size: $mainSize;
+        box-shadow: inset 0px 0px 3px 3px black;
+        border-radius: 12px;
+    }
+
+    &__items {
+        flex: 1 1 auto;
+        padding: 10px;
+        color: $mainColor;
+        font-size: $mainSize;
+        box-shadow: inset 0px 0px 3px 3px black;
+        border-radius: 12px;
+    }
+}
+
+.cost {
+    flex: 1 1 auto;
+    border-radius: 12px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
+}
+
+
