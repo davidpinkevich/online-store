@@ -4,16 +4,13 @@ import cartItem from "./cart-item";
 import { ICartItems } from "../../types/types";
 
 export function createCart() {
-  const linkForCart = <HTMLElement>document.querySelector(".basket__basket");
-  linkForCart.removeEventListener("click", createCart);
-  const main = <HTMLElement>document.querySelector(".main");
-  main.style.display = "none";
-  const header = <HTMLElement>document.querySelector(".header");
+  const main = <HTMLElement>document.getElementById("root");
+  main.innerHTML = "";
 
   // общий блок
   const productsBody = document.createElement("div");
   productsBody.classList.add("products__body", "__container");
-  header.after(productsBody);
+  main.append(productsBody);
 
   //  БЛОК продуктов---------------------------------------------------
   const products = document.createElement("div");
