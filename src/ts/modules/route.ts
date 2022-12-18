@@ -1,13 +1,14 @@
 import Navigo from "navigo";
 import { goodsData } from "../data/goodsData";
 import { createAllItems, createGood } from "./add-all-items";
+import { createCart } from "./cart/cart-block";
 import changeMainPhoto from "./change-main-photo";
 
-const navigo = new Navigo("/", { hash: true });
+const router = new Navigo("/", { hash: true });
 
 const root = document.querySelector("#root") as HTMLElement;
 
-navigo
+router
   .on("/", () => {
     root.innerHTML = `
     <div class="main __container">
@@ -71,6 +72,10 @@ navigo
       createGood(goodsData[num - 1]);
     }
     changeMainPhoto();
+  })
+  .on("/cart/", () => {
+    console.log("cart");
+    createCart();
   })
   .notFound(() => {
     root.innerHTML = `
