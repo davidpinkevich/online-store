@@ -43,10 +43,40 @@ function cartItem(item: TGoodsData): void {
   infoDescript.innerHTML = `<span>About</span>: ${item.description}`;
   infoBlock.append(infoDescript);
 
-  // блок с кнопками
+  // блок с кнопками-----------------------------------------------------
   const blockButtons = document.createElement("div");
   blockButtons.classList.add("cart-item__buttons");
   bodyItem.append(blockButtons);
+
+  const buttonsStock = document.createElement("p");
+  buttonsStock.classList.add("cart-item__buttons-title");
+  buttonsStock.innerHTML = `In stock: <span>${item.stock}</span>`;
+  blockButtons.append(buttonsStock);
+
+  const btnsAdd = document.createElement("button");
+  btnsAdd.classList.add("cart-item__buttons-add");
+  btnsAdd.innerHTML = "Add";
+  blockButtons.append(btnsAdd);
+
+  const btnsRemove = document.createElement("button");
+  btnsRemove.classList.add("cart-item__buttons-remove");
+  btnsRemove.innerHTML = "Remove";
+  blockButtons.append(btnsRemove);
+
+  // инфо о кол-ве товаров и общая ценна за один вид
+  const btnInfo = document.createElement("div");
+  btnInfo.classList.add("cart-item__buttons-info");
+  blockButtons.append(btnInfo);
+
+  const btnInfoCurrent = document.createElement("p");
+  btnInfoCurrent.classList.add("cart-item__buttons-info-current");
+  btnInfoCurrent.innerHTML = "Items: <span>1</span>";
+  btnInfo.append(btnInfoCurrent);
+
+  const btnInfoCost = document.createElement("p");
+  btnInfoCost.classList.add("cart-item__buttons-info-cost");
+  btnInfoCost.innerHTML = `Price: <span>${item.price} $</span>`;
+  btnInfo.append(btnInfoCost);
 }
 
 export default cartItem;
