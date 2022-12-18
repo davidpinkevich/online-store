@@ -31,5 +31,6 @@ export interface IItemClass {
 export interface ICartItems {
   id: number;
   count: number;
+  stock: number;
   price: number;
 }

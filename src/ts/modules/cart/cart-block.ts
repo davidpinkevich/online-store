@@ -1,6 +1,5 @@
 import { goodsData } from "../../data/goodsData";
 import cartItem from "./cart-item";
-// import { TGoodsData } from "../../types/types";
 import { ICartItems } from "../../types/types";
 
 export function createCart() {

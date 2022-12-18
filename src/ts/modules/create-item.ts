@@ -127,6 +127,7 @@ class Product implements IItemClass {
         const objItemsCart: ICartItems = {
           id: this._id,
           count: 1,
+          stock: this._stock,
           price: this._price,
         };
         arrItemsCart.push(objItemsCart);
@@ -135,6 +136,7 @@ class Product implements IItemClass {
         const objItemsCart: ICartItems = {
           id: this._id,
           count: 1,
+          stock: this._stock,
           price: this._price,
         };
         const addItem = JSON.parse(localStorage.getItem("cart-storage") || "");
