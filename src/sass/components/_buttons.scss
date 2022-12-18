@@ -75,3 +75,19 @@
 .button__body-add.active {
     background-color: #543907;
 }
+
+// добавить и удалить количество товаров одного вида в корзине
+.cart-item__buttons-add,
+.cart-item__buttons-remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
+    background-color: $secondColor;
+    color: $mainColor;
+}
