@@ -3,6 +3,7 @@ import { goodsData } from "../data/goodsData";
 import { createAllItems, createGood } from "./add-all-items";
 import { createCart } from "./cart/cart-block";
 import changeMainPhoto from "./change-main-photo";
+import multiRange from "./multi-range";
 
 const router = new Navigo("/", { hash: true });
 
@@ -15,29 +16,67 @@ router
     <div class="main__filter filter">
         <section class="filter__category">
             <h2 class="filter__category-title">Category</h2>
+            <hr>
             <div class="filter__category-items category-items">
-                <label><input type="checkbox" name="category">test1</label>
-                <label><input type="checkbox" name="category">test2</label>
-                <label><input type="checkbox" name="category">test3</label>
-                <label><input type="checkbox" name="category">test4</label>
+            <div class="checkbox">
+            <input id="1" type="checkbox" class="checkbox__input">
+            <label for="1" class="checkbox__label">test 1</label>
+         </div>
+ 
+         <div class="checkbox">
+             <input id="2" type="checkbox" class="checkbox__input">
+             <label for="2" class="checkbox__label">test 2</label>
+          </div>
             </div>
         </section>
         <section class="filter__brand">
             <h2 class="filter__brand-title">Brand</h2>
+            <hr>
             <div class="filter__brand-items brand-items">
-                <label><input type="checkbox" name="brand">test5</label>
-                <label><input type="checkbox" name="brand">test6</label>
-                <label><input type="checkbox" name="brand">test7</label>
-                <label><input type="checkbox" name="brand">test8</label>
+            <div class="checkbox">
+            <input id="3" type="checkbox" class="checkbox__input">
+            <label for="3" class="checkbox__label">test 1</label>
+         </div>
+ 
+         <div class="checkbox">
+             <input id="4" type="checkbox" class="checkbox__input">
+             <label for="4" class="checkbox__label">test 2</label>
+          </div>
             </div>
         </section>
         <section class="filter__stock">
             <h2 class="filter__stock-title">Stock</h2>
-            <input class = "filter__stock-range" type="range" min = "0" max = "100">
+            <hr>
+            <div class="slider">
+            <div class="progress"></div>
+        </div>
+
+        <div class="range-input">
+            <input type="range" class="range-min" id="stockMin" min="2" max="150" value="2">
+            <input type="range" class="range-max" id="stockMax" min="2" max="150" value="150">
+        </div>
+        <div class="filter__stock-info">
+            <div class="filter__stock-min">2</div>
+            <div class="filter__stock-arrow">⟷</div>
+            <div class="filter__stock-max">150</div>
+        </div>
         </section>
         <section class="filter__price">
             <h2 class="filter__price-title">Price</h2>
-            <input class = "filter__price-range" type="range" min = "0" max = "100">
+            <hr>
+            <div class="slider">
+            <div class="progress"></div>
+        </div>
+
+        <div class="range-input">
+            <input type="range" class="range-min" id="priceMin" min="10" max="1749" value="10">
+            <input type="range" class="range-max" id="priceMax" min="10" max="1749" value="1749">
+        </div>
+        <div class="filter__price-info">
+            <div class="filter__price-min">10</div>
+            <div class="filter__price-arrow">⟷</div>
+            <div class="filter__price-max">1749</div>
+        </div>
         </section>
         <div class="filter__buttons button">
             <button class = "button__reset">Reset Filtres</button>
@@ -51,6 +90,7 @@ router
 </div>
     `;
     createAllItems(goodsData);
+    multiRange();
   })
   .on("/good/:id", (q) => {
     const id = q?.data?.id;
