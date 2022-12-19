@@ -2,6 +2,7 @@ import { ICartItems } from "../../types/types";
 import { createCart } from "./cart-block";
 import { itemCost } from "./item-cost";
 import { totalPrice } from "./total-cost";
+import { addAllAmount } from "./total-amount";
 
 function addItemCurrent(
   event: Event,
@@ -14,6 +15,7 @@ function addItemCurrent(
   const newLs: ICartItems[] = [];
   const secondLs: ICartItems[] = [];
   const mainCost = <HTMLElement>document.querySelector(".header__cost>span");
+  const currItems = <HTMLElement>document.querySelector(".basket__basket");
   //-----------добавление----------------------------
   if (event.target === btnAdd) {
     const curr = Number(btnAdd.parentElement?.getAttribute("id"));
@@ -29,6 +31,7 @@ function addItemCurrent(
     });
     localStorage.setItem("cart-storage", JSON.stringify(newLs));
     totalPrice(mainCost);
+    addAllAmount(currItems);
   }
   //----------удаление--------------------------------
   if (event.target === btnRemove) {
@@ -46,6 +49,7 @@ function addItemCurrent(
     });
     localStorage.setItem("cart-storage", JSON.stringify(newLs));
     totalPrice(mainCost);
+    addAllAmount(currItems);
   }
   lsCart.forEach((item: ICartItems) => {
     if (item.count > 0) {
