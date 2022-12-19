@@ -171,7 +171,7 @@ class Product implements IItemClass {
         <span class="good__more">>></span>
         <span class="good__brand">${this._brand}</span>
         <span class="good__more">>></span>
-        <span class="good__model">${this._title} 9</span>
+        <span class="good__model">${this._title}</span>
     </section>
 
     <section class="good-item">
