@@ -1,7 +1,8 @@
 import { TGoodsData } from "../types/types";
 import { IItemClass } from "../types/types";
 import { ICartItems } from "../types/types";
-import { mainCost } from "./total-cost";
+import { totalPrice } from "./cart/total-cost";
+import { addAllAmount } from "./cart/total-amount";
 
 class Product implements IItemClass {
   public _id: number;
@@ -127,6 +128,7 @@ class Product implements IItemClass {
         const objItemsCart: ICartItems = {
           id: this._id,
           count: 1,
+          stock: this._stock,
           price: this._price,
         };
         arrItemsCart.push(objItemsCart);
@@ -135,6 +137,7 @@ class Product implements IItemClass {
         const objItemsCart: ICartItems = {
           id: this._id,
           count: 1,
+          stock: this._stock,
           price: this._price,
         };
         const addItem = JSON.parse(localStorage.getItem("cart-storage") || "");
@@ -144,10 +147,8 @@ class Product implements IItemClass {
       // удалять элементы из стореджа
       if (!buttonAdd.classList.contains("active") && lsCart !== null) {
         buttonAdd.innerHTML = "add to cart";
-        console.log(JSON.parse(lsCart));
         const newArr: ICartItems[] | null = [];
         JSON.parse(lsCart).forEach((item: ICartItems) => {
-          console.log(item.id);
           if (item && item.id !== this._id) {
             newArr?.push(item);
           }
@@ -156,7 +157,12 @@ class Product implements IItemClass {
       } else {
         buttonAdd.innerHTML = "from cart";
       }
-      mainCost();
+      const fullPrice = <HTMLElement>(
+        document.querySelector(".header__cost>span")
+      );
+      const currItems = <HTMLElement>document.querySelector(".basket__basket");
+      totalPrice(fullPrice);
+      addAllAmount(currItems);
     });
   }
 

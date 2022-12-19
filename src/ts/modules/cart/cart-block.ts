@@ -1,7 +1,8 @@
 import { goodsData } from "../../data/goodsData";
 import cartItem from "./cart-item";
-// import { TGoodsData } from "../../types/types";
 import { ICartItems } from "../../types/types";
+import { totalPrice } from "./total-cost";
+import { addAllAmount } from "./total-amount";
 
 export function createCart() {
   const main = <HTMLElement>document.getElementById("root");
@@ -29,7 +30,13 @@ export function createCart() {
   const cost = document.createElement("div");
   cost.classList.add("cost");
   productsBody.append(cost);
-
+  // общая цена в хедере--------------------------
+  const fullPrice = <HTMLElement>document.querySelector(".header__cost>span");
+  totalPrice(fullPrice);
+  // общее кол-во товаров в хедере + заблочим нажатие на корзину
+  const currItems = <HTMLElement>document.querySelector(".basket__basket");
+  currItems.style.pointerEvents = "none";
+  addAllAmount(currItems);
   // вставка блочков с item
   const storage = JSON.parse(localStorage.getItem("cart-storage") || "");
   if (storage.length > 0) {

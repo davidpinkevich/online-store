@@ -74,7 +74,6 @@ router
     changeMainPhoto();
   })
   .on("/cart/", () => {
-    console.log("cart");
     createCart();
   })
   .notFound(() => {
