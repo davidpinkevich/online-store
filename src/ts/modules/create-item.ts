@@ -1,7 +1,7 @@
 import { TGoodsData } from "../types/types";
 import { IItemClass } from "../types/types";
 import { ICartItems } from "../types/types";
-import { mainCost } from "./total-cost";
+import { totalPrice } from "./cart/total-cost";
 
 class Product implements IItemClass {
   public _id: number;
@@ -158,7 +158,10 @@ class Product implements IItemClass {
       } else {
         buttonAdd.innerHTML = "from cart";
       }
-      mainCost();
+      const fullPrice = <HTMLElement>(
+        document.querySelector(".header__cost>span")
+      );
+      totalPrice(fullPrice);
     });
   }
 

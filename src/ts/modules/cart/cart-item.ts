@@ -1,6 +1,6 @@
 import { TGoodsData, ICartItems } from "../../types/types";
 import addItemCurrent from "./add-current-items";
-// import { ICartItems } from "../../types/types";
+import { itemCost } from "./item-cost";
 
 function cartItem(item: TGoodsData): void {
   const bodyitems = <HTMLElement>document.querySelector(".products__items");
@@ -50,25 +50,8 @@ function cartItem(item: TGoodsData): void {
   blockButtons.classList.add("cart-item__buttons");
   blockButtons.setAttribute("id", `${item.id}`);
   blockButtons.addEventListener("click", function (event: Event) {
-    addItemCurrent(event, btnsAdd, btnsRemove, btnInfoCurrent);
-    // addItemCurrent(event, btnsAdd, btnsRemove, btnInfoCurrent);
+    addItemCurrent(event, btnsAdd, btnsRemove, btnInfoCurrent, btnInfoCost);
   });
-  //   blockButtons.addEventListener("click", function (event: Event) {
-  //     const lsCart = JSON.parse(localStorage.getItem("cart-storage") || "");
-  //     const newLs: ICartItems[] = [];
-  //     if (event.target === btnsAdd) {
-  //       const curr = Number(btnsAdd.parentElement?.getAttribute("id"));
-  //       lsCart.forEach((item: ICartItems) => {
-  //         if (item.id === curr) {
-  //           item.count++;
-  //           newLs.push(item);
-  //         } else {
-  //           newLs.push(item);
-  //         }
-  //       });
-  //     }
-  //     localStorage.setItem("cart-storage", JSON.stringify(newLs));
-  //   });
   bodyItem.append(blockButtons);
 
   const buttonsStock = document.createElement("p");
@@ -98,7 +81,7 @@ function cartItem(item: TGoodsData): void {
 
   const btnInfoCost = document.createElement("p");
   btnInfoCost.classList.add("cart-item__buttons-info-cost");
-  btnInfoCost.innerHTML = `Price: <span>${item.price} $</span>`;
+  btnInfoCost.innerHTML = `Price: <span></span>`;
   btnInfo.append(btnInfoCost);
 
   // попытка перезаписать items и price
@@ -106,6 +89,7 @@ function cartItem(item: TGoodsData): void {
   lsCart.forEach((itemLs: ICartItems) => {
     if (itemLs.id === item.id) {
       btnInfoCurrent.innerHTML = `Items: <span>${itemLs.count}</span>`;
+      itemCost(itemLs, btnInfoCost);
     }
   });
 }

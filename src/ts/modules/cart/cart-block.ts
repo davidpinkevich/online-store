@@ -1,6 +1,7 @@
 import { goodsData } from "../../data/goodsData";
 import cartItem from "./cart-item";
 import { ICartItems } from "../../types/types";
+import { totalPrice } from "./total-cost";
 
 export function createCart() {
   const main = <HTMLElement>document.getElementById("root");
@@ -28,7 +29,9 @@ export function createCart() {
   const cost = document.createElement("div");
   cost.classList.add("cost");
   productsBody.append(cost);
-
+  // общая цена в хедере--------------------------
+  const fullPrice = <HTMLElement>document.querySelector(".header__cost>span");
+  totalPrice(fullPrice);
   // вставка блочков с item
   const storage = JSON.parse(localStorage.getItem("cart-storage") || "");
   if (storage.length > 0) {
