@@ -3,6 +3,7 @@ import { goodsData } from "../data/goodsData";
 import { createAllItems, createGood } from "./add-all-items";
 import { createCart } from "./cart/cart-block";
 import changeMainPhoto from "./change-main-photo";
+import multiRange from "./multi-range";
 
 const router = new Navigo("/", { hash: true });
 
@@ -89,6 +90,7 @@ router
 </div>
     `;
     createAllItems(goodsData);
+    multiRange();
   })
   .on("/good/:id", (q) => {
     const id = q?.data?.id;
