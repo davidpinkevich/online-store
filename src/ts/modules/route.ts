@@ -70,7 +70,9 @@ router
         </div>
     </div>
     <div class="main__items">
-        <div class="main__items-search">Доп поиск</div>
+        <div class="main__items-search search">
+            <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
+        </div>
         <div class="main__items-body"></div>
     </div>
 </div>
