@@ -166,6 +166,8 @@
     text-shadow: 2px 2px 2px black;
 
     &-items {
+        height: 200px;
+        overflow-y: scroll;
         font-size: 20px;
         display: flex;
         flex-direction: column;
@@ -187,6 +189,8 @@
     text-shadow: 2px 2px 2px black;
 
     &-items {
+        height: 200px;
+        overflow-y: scroll;
         font-size: 20px;
         display: flex;
         flex-direction: column;
