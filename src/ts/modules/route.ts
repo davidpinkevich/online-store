@@ -10,6 +10,7 @@ import {
 } from "./filter/create-checkbox";
 import filterHandler from "./filter/filter-checbox";
 import multiRange from "./filter/multi-range";
+import { filterSearch } from "./filter/filter-search";
 
 const router = new Navigo("/", { hash: true });
 
@@ -82,6 +83,7 @@ router
     createСategoriesCheckbox(goodsData);
     filterHandler();
     multiRange();
+    filterSearch();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
