@@ -66,12 +66,12 @@ class Product implements IItemClass {
 
     const descriptionPrice = document.createElement("p");
     descriptionPrice.classList.add("description__block-price");
-    descriptionPrice.innerHTML = `<span>Price:</span> ${this._price}`;
+    descriptionPrice.innerHTML = `<span>Price:</span> ${this._price} $`;
     descriptionBlock.append(descriptionPrice);
 
     const descriptionDiscount = document.createElement("p");
     descriptionDiscount.classList.add("description__block-discount");
-    descriptionDiscount.innerHTML = `<span>Discount:</span> ${this._discountPercentage}`;
+    descriptionDiscount.innerHTML = `<span>Discount:</span> ${this._discountPercentage} %`;
     descriptionBlock.append(descriptionDiscount);
 
     const descriptionRating = document.createElement("p");
