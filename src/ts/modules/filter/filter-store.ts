@@ -7,4 +7,5 @@ export const filterStore: TFilterStore = {
   maxStock: 150,
   minPrice: 10,
   maxPrice: 1749,
+  search: "",
 };

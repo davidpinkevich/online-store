@@ -44,4 +44,5 @@ export type TFilterStore = {
   maxStock: number;
   minPrice: number;
   maxPrice: number;
+  search: string;
 };
