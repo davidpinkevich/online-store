@@ -231,3 +231,23 @@
         flex-wrap: wrap;
     }
 }
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-input {
+    box-shadow: inset 0px 0px 3px 3px black;
+    background-color: inherit;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    font-size: $secondSize;
+    transition: all 0.3s;
+    color: $mainColor;
+    text-shadow: 2px 2px 2px black;
+    &:focus {
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+}

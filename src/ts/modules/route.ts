@@ -10,6 +10,7 @@ import {
 } from "./filter/create-checkbox";
 import filterHandler from "./filter/filter-checbox";
 import multiRange from "./filter/multi-range";
+import { filterSearch } from "./filter/filter-search";
 
 const router = new Navigo("/", { hash: true });
 
@@ -70,7 +71,9 @@ router
         </div>
     </div>
     <div class="main__items">
-        <div class="main__items-search">Доп поиск</div>
+        <div class="main__items-search search">
+            <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
+        </div>
         <div class="main__items-body"></div>
     </div>
 </div>
@@ -80,6 +83,7 @@ router
     createСategoriesCheckbox(goodsData);
     filterHandler();
     multiRange();
+    filterSearch();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
