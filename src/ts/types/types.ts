@@ -34,3 +34,14 @@ export interface ICartItems {
   stock: number;
   price: number;
 }
+
+export type TIdCheck = string | undefined;
+
+export type TFilterStore = {
+  categories: string[];
+  brands: string[];
+  minStock: number;
+  maxStock: number;
+  minPrice: number;
+  maxPrice: number;
+};

@@ -1,4 +1,4 @@
-import { goodsData } from "../../data/goodsData";
+import { goodsData } from "../../data/goods-data";
 import cartItem from "./cart-item";
 import { ICartItems } from "../../types/types";
 import { totalPrice } from "./total-cost";

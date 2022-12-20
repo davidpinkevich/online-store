@@ -1,3 +1,6 @@
+import { filterStore } from "./filter-store";
+import { filterGoods } from "./filter-goods";
+
 const multiRange = () => {
   const rangeStock: NodeListOf<HTMLInputElement> = document.querySelectorAll(
     ".filter__stock input"
@@ -24,14 +27,12 @@ const multiRange = () => {
     ".filter__price-max"
   ) as HTMLDivElement;
 
-  const stockGap = 5;
-  const priceGap = 50;
-
   rangeStock.forEach((input): void => {
     input.addEventListener("input", (e) => {
       const minValue: number = parseInt(rangeStock[0].value);
       const maxValue: number = parseInt(rangeStock[1].value);
 
+      const stockGap = 5;
       const target = e.target as HTMLDivElement;
 
       if (maxValue - minValue < stockGap) {
@@ -41,13 +42,17 @@ const multiRange = () => {
           rangeStock[1].value = `${minValue + stockGap}`;
         }
       } else {
-        console.log(progressStock);
         progressStock.style.left = (minValue / 150) * 100 + "%";
         progressStock.style.right = 100 - (maxValue / 150) * 100 + "%";
       }
 
       stockMin.textContent = rangeStock[0].value;
       stockMax.textContent = rangeStock[1].value;
+
+      filterStore.minStock = minValue;
+      filterStore.maxStock = maxValue;
+
+      filterGoods();
     });
   });
 
@@ -56,6 +61,7 @@ const multiRange = () => {
       const minValue: number = parseInt(priceStock[0].value);
       const maxValue: number = parseInt(priceStock[1].value);
 
+      const priceGap = 50;
       const target = e.target as HTMLDivElement;
 
       if (maxValue - minValue < priceGap) {
@@ -65,13 +71,17 @@ const multiRange = () => {
           priceStock[1].value = `${minValue + priceGap}`;
         }
       } else {
-        console.log(progressStock);
         progressPrice.style.left = (minValue / 1749) * 100 + "%";
         progressPrice.style.right = 100 - (maxValue / 1749) * 100 + "%";
       }
 
       priceMin.textContent = priceStock[0].value;
       priceMax.textContent = priceStock[1].value;
+
+      filterStore.minPrice = minValue;
+      filterStore.maxPrice = maxValue;
+
+      filterGoods();
     });
   });
 };

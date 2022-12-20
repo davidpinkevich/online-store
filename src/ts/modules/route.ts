@@ -1,9 +1,15 @@
 import Navigo from "navigo";
-import { goodsData } from "../data/goodsData";
+import { goodsData } from "../data/goods-data";
+import { TIdCheck } from "../types/types";
 import { createAllItems, createGood } from "./add-all-items";
 import { createCart } from "./cart/cart-block";
 import changeMainPhoto from "./change-main-photo";
-import multiRange from "./multi-range";
+import {
+  createBrandsCheckbox,
+  createСategoriesCheckbox,
+} from "./filter/create-checkbox";
+import filterHandler from "./filter/filter-checbox";
+import multiRange from "./filter/multi-range";
 
 const router = new Navigo("/", { hash: true });
 
@@ -17,32 +23,12 @@ router
         <section class="filter__category">
             <h2 class="filter__category-title">Category</h2>
             <hr>
-            <div class="filter__category-items category-items">
-            <div class="checkbox">
-            <input id="1" type="checkbox" class="checkbox__input">
-            <label for="1" class="checkbox__label">test 1</label>
-         </div>
- 
-         <div class="checkbox">
-             <input id="2" type="checkbox" class="checkbox__input">
-             <label for="2" class="checkbox__label">test 2</label>
-          </div>
-            </div>
+            <div class="filter__category-items category-items"></div>
         </section>
         <section class="filter__brand">
             <h2 class="filter__brand-title">Brand</h2>
             <hr>
-            <div class="filter__brand-items brand-items">
-            <div class="checkbox">
-            <input id="3" type="checkbox" class="checkbox__input">
-            <label for="3" class="checkbox__label">test 1</label>
-         </div>
- 
-         <div class="checkbox">
-             <input id="4" type="checkbox" class="checkbox__input">
-             <label for="4" class="checkbox__label">test 2</label>
-          </div>
-            </div>
+            <div class="filter__brand-items brand-items"></div>
         </section>
         <section class="filter__stock">
             <h2 class="filter__stock-title">Stock</h2>
@@ -90,10 +76,13 @@ router
 </div>
     `;
     createAllItems(goodsData);
+    createBrandsCheckbox(goodsData);
+    createСategoriesCheckbox(goodsData);
+    filterHandler();
     multiRange();
   })
   .on("/good/:id", (q) => {
-    const id = q?.data?.id;
+    const id: TIdCheck = q?.data?.id;
     root.innerHTML = `<div class="good __container"></div>`;
     if (id) {
       const num = +id;
