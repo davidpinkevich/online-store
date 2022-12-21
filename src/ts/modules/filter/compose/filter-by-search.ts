@@ -1,11 +1,15 @@
-import { TGoodsData } from "../../../types/types";
+import { TCompose, TGoodsData } from "../../../types/types";
 import { filterStore } from "../filter-store";
 
-export function searchItems(data: TGoodsData[]): TGoodsData[] {
+export const filterBySearch: TCompose = (data: TGoodsData[]): TGoodsData[] => {
   const src = filterStore.search.toLowerCase();
   const newArr: TGoodsData[] = [];
 
   data.forEach((item: TGoodsData) => {
+    if (item.title.toLowerCase().includes(src)) {
+      newArr.push(item);
+      return;
+    }
     if (item.brand.toLowerCase().includes(src)) {
       newArr.push(item);
       return;
@@ -30,6 +34,5 @@ export function searchItems(data: TGoodsData[]): TGoodsData[] {
       newArr.push(item);
     }
   });
-  console.log(newArr);
   return newArr;
-}
+};

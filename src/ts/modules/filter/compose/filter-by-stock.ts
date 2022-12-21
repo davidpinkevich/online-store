@@ -1,7 +1,7 @@
-import { TGoodsData } from "../../../types/types";
+import { TCompose, TGoodsData } from "../../../types/types";
 import { filterStore } from "../filter-store";
 
-export const filterByStock = (data: TGoodsData[]): TGoodsData[] => {
+export const filterByStock: TCompose = (data: TGoodsData[]): TGoodsData[] => {
   return data.filter((datum) => {
     if (
       datum.stock >= filterStore.minStock &&

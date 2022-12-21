@@ -4,6 +4,8 @@ import { totalPrice } from "./cart/total-cost";
 import { addAllAmount } from "./cart/total-amount";
 
 export function createAllItems(items: TGoodsData[]): void {
+  // const parent = document.querySelector(".main__items-body") as HTMLDivElement;
+  // parent.innerHTML = "";
   items.forEach((item) => {
     new Product(item).createItem(
       `/good/${item.id}`,
