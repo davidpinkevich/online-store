@@ -16,6 +16,12 @@ function addItemCurrent(
   const secondLs: ICartItems[] = [];
   const mainCost = <HTMLElement>document.querySelector(".header__cost>span");
   const currItems = <HTMLElement>document.querySelector(".basket__basket");
+  const mainCurrentRight = <HTMLElement>(
+    document.querySelector(".cost__body-items-current")
+  );
+  const mainCostRight = <HTMLElement>(
+    document.querySelector(".cost__body-price-amount")
+  );
   //-----------добавление----------------------------
   if (event.target === btnAdd) {
     const curr = Number(btnAdd.parentElement?.getAttribute("id"));
@@ -32,6 +38,8 @@ function addItemCurrent(
     localStorage.setItem("cart-storage", JSON.stringify(newLs));
     totalPrice(mainCost);
     addAllAmount(currItems);
+    totalPrice(mainCostRight);
+    addAllAmount(mainCurrentRight);
   }
   //----------удаление--------------------------------
   if (event.target === btnRemove) {
@@ -50,6 +58,8 @@ function addItemCurrent(
     localStorage.setItem("cart-storage", JSON.stringify(newLs));
     totalPrice(mainCost);
     addAllAmount(currItems);
+    totalPrice(mainCostRight);
+    addAllAmount(mainCurrentRight);
   }
   lsCart.forEach((item: ICartItems) => {
     if (item.count > 0) {
