@@ -1,7 +1,9 @@
-import { TGoodsData } from "../../../types/types";
+import { TCompose, TGoodsData } from "../../../types/types";
 import { filterStore } from "../filter-store";
 
-export const filterByCategory = (data: TGoodsData[]): TGoodsData[] => {
+export const filterByCategory: TCompose = (
+  data: TGoodsData[]
+): TGoodsData[] => {
   if (filterStore.categories.length === 0) return data;
   return filterStore.categories
     .map((category) => {
