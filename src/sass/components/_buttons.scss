@@ -1,24 +1,20 @@
 //кнопки сброса и сохранки 
 .button {
+    text-shadow: 2px 2px 2px black;
     box-shadow: inset 0px 0px 3px 3px black;
     border-radius: 8px;
     padding: 10px;
 
     &__add {
-        display: none;
         width: 250px;
-        height: 50px;    
+        height: 50px;
         color: $mainColor;
+        display: block;
         background-color: $secondColor;
         text-transform: uppercase;
     
         &:hover {
             background-color: darken($secondColor, 5);
-        }
-    
-
-        &-active {
-            display: block;
         }
     }
 
@@ -53,6 +49,14 @@
         }
     
     }
+}
+
+.button__add {
+    transition: all 0.3s;
+}
+
+.button__add.active {
+    background-color: #8e600a;
 }
 
 // кнопки добавить/удалить товар и инфрмация о товаре на основных карточках
