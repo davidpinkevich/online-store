@@ -4,6 +4,7 @@ import { filterByCategory } from "./filter-by-category";
 import { filterByPrice } from "./filter-by-price";
 import { filterBySearch } from "./filter-by-search";
 import { filterByStock } from "./filter-by-stock";
+import { filterByRating } from "./filter-by-rating";
 
 const compose =
   (...fns: TCompose[]) =>
@@ -15,5 +16,6 @@ export const myCompose = compose(
   filterByBrand,
   filterByStock,
   filterByPrice,
-  filterBySearch
+  filterBySearch,
+  filterByRating
 );

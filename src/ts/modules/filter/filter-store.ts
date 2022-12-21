@@ -8,4 +8,5 @@ export const filterStore: TFilterStore = {
   minPrice: 10,
   maxPrice: 1749,
   search: "",
+  rating: false,
 };

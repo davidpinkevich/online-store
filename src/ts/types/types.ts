@@ -45,6 +45,7 @@ export type TFilterStore = {
   minPrice: number;
   maxPrice: number;
   search: string;
+  rating: boolean;
 };
 
 export type TCompose = (data: TGoodsData[]) => TGoodsData[];
