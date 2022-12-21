@@ -71,7 +71,7 @@ class Product implements IItemClass {
 
     const descriptionDiscount = document.createElement("p");
     descriptionDiscount.classList.add("description__block-discount");
-    descriptionDiscount.innerHTML = `<span>Discount:</span> ${this._discountPercentage} %`;
+    descriptionDiscount.innerHTML = `<span>Discount:</span> ${this._discountPercentage}`;
     descriptionBlock.append(descriptionDiscount);
 
     const descriptionRating = document.createElement("p");
@@ -226,7 +226,7 @@ class Product implements IItemClass {
                 </div>
             </div>
             <div class="good-item__control">
-                <div class="good-item__price">${this._price} $</div>
+                <div class="good-item__price">${this._price}</div>
                 <button class="button button__add button__add-active">ADD TO CART</button>
                 <button class="button button__drop">DROP FROM CART</button>
                 <button class="button button__buy">BYU NOW</button>
