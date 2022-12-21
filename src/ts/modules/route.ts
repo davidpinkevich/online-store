@@ -11,6 +11,7 @@ import {
 import filterHandler from "./filter/filter-checbox";
 import multiRange from "./filter/multi-range";
 import { filterSearch } from "./filter/filter-search";
+import { filterRating } from "./filter/filter-rating";
 
 const router = new Navigo("/", { hash: true });
 
@@ -72,6 +73,11 @@ router
     </div>
     <div class="main__items">
         <div class="main__items-search search">
+            <div class="search__btn">
+                <button class="search__btn-rating">sort by rating</button>
+                <button class="search__btn-price">sort by price</button>
+                <button class="search__btn-stock">sort by stock</button>
+            </div>
             <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
         </div>
         <div class="main__items-body"></div>
@@ -84,6 +90,7 @@ router
     filterHandler();
     multiRange();
     filterSearch();
+    filterRating();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
