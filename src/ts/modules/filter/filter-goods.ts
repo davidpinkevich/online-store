@@ -1,12 +1,9 @@
 import { goodsData } from "../../data/goods-data";
-import { filterByBrand } from "./compose/filter-by-brand";
-import { filterByCategory } from "./compose/filter-by-category";
-import { filterByPrice } from "./compose/filter-by-price";
-import { filterByStock } from "./compose/filter-by-stock";
+import { TGoodsData } from "../../types/types";
+import { createAllItems } from "../add-all-items";
+import { myCompose } from "./compose/compose";
 
 export const filterGoods = () => {
-  console.log(filterByCategory(goodsData));
-  console.log(filterByBrand(goodsData));
-  console.log(filterByStock(goodsData));
-  console.log(filterByPrice(goodsData));
+  const data: TGoodsData[] = myCompose(goodsData);
+  createAllItems(data);
 };
