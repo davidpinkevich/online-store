@@ -11,6 +11,11 @@ function cartItem(item: TGoodsData): void {
   const wrapImg = document.createElement("div");
   wrapImg.classList.add("cart-item__img");
   bodyItem.append(wrapImg);
+  // для вставки порядкового номера
+  const wrapImgCount = document.createElement("div");
+  wrapImgCount.classList.add("cart-item__img-count");
+  wrapImgCount.innerHTML = "0";
+  wrapImg.append(wrapImgCount);
 
   const itemImg = document.createElement("img");
   itemImg.src = item.thumbnail;
@@ -86,9 +91,10 @@ function cartItem(item: TGoodsData): void {
 
   // попытка перезаписать items и price
   const lsCart = JSON.parse(localStorage.getItem("cart-storage") || "");
-  lsCart.forEach((itemLs: ICartItems) => {
+  lsCart.forEach((itemLs: ICartItems, index: number) => {
     if (itemLs.id === item.id) {
       btnInfoCurrent.innerHTML = `Items: <span>${itemLs.count}</span>`;
+      wrapImgCount.innerHTML = `${index + 1}`;
       itemCost(itemLs, btnInfoCost);
     }
   });
