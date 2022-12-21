@@ -95,3 +95,36 @@
     background-color: $secondColor;
     color: $mainColor;
 }
+
+// кнопки фильтра
+
+.search__btn {
+    display: flex;
+    gap: 10px;
+}
+
+.search__btn-rating,
+.search__btn-price,
+.search__btn-stock {
+    font-size: $secondSize;
+    color: $mainColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 3px 3px black;
+    background-color: inherit;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.search__btn-rating.active {
+    box-shadow: inset 0px 0px 3px 3px white;
+    cursor: auto;
+    &:hover {
+        transform: scale(1);
+    }
+}
