@@ -182,7 +182,6 @@ class Product implements IItemClass {
 
     <section class="good-item">
         <h1>${this._title}</h1>
-        <hr>
         <div class="good-item__content">
             <div class="good-item__photos">
                 <img src="${this._images[0]}" alt="main"
@@ -195,39 +194,33 @@ class Product implements IItemClass {
             </div>
             <div class="good-item__descr">
                 <div class="good-item__name">
-                    <h2>Description:</h2>
-                    <hr>
-                    <p>${this._description}</p>
-                </div>
-                <div class="good-item__name">
-                    <h2>Discount Percentage:</h2>
-                    <hr>
-                    <p>${this._discountPercentage}</p>
-                </div>
-                <div class="good-item__name">
-                    <h2>Rating:</h2>
-                    <hr>
-                    <p>${this._rating}</p>
-                </div>
-                <div class="good-item__name">
-                    <h2>Stock:</h2>
-                    <hr>
-                    <p>${this._stock}</p>
+                    <h2>Category:</h2>
+                    <p>${this._category}</p>
                 </div>
                 <div class="good-item__name">
                     <h2>Brand:</h2>
-                    <hr>
                     <p>${this._brand}</p>
                 </div>
                 <div class="good-item__name">
-                    <h2>Category:</h2>
-                    <hr>
-                    <p>${this._category}</p>
+                    <h2>Rating:</h2>
+                    <p>${this._rating}</p>
                 </div>
+                <div class="good-item__name">
+                    <h2>Discount Percentage:</h2>
+                    <p>${this._discountPercentage}</p>
+                </div>
+                <div class="good-item__name">
+                    <h2>Stock:</h2>
+                    <p>${this._stock}</p>
+                </div>
+                <div class="good-item__name good-item__name-scroll">
+                <h2>Description:</h2>
+                <p>${this._description}</p>
+            </div>
             </div>
             <div class="good-item__control">
                 <div class="good-item__price">${this._price}</div>
-                <button class="button button__add button__add-active">ADD TO CART</button>
+                <button class="button button__add">ADD TO CART</button>
                 <button class="button button__drop">DROP FROM CART</button>
                 <button class="button button__buy">BYU NOW</button>
             </div>
@@ -237,6 +230,68 @@ class Product implements IItemClass {
     //-----------------------------------------------------
     const root = document.querySelector(".good");
     root?.append(div);
+
+    const secondBtn = <HTMLButtonElement>(
+      document.querySelector(".button.button__add")
+    );
+    const lsCartMain = localStorage.getItem("cart-storage");
+    if (lsCartMain && JSON.parse(lsCartMain || "").length > 0) {
+      JSON.parse(lsCartMain || "").forEach((item: ICartItems) => {
+        if (item.id === this._id) {
+          secondBtn.classList.add("active");
+          secondBtn.innerHTML = "from cart";
+        }
+      });
+    }
+
+    secondBtn.addEventListener("click", () => {
+      const lsCart = localStorage.getItem("cart-storage");
+      if (secondBtn.classList.contains("active")) {
+        secondBtn.classList.remove("active");
+      } else {
+        secondBtn.classList.add("active");
+      }
+      if (!lsCart) {
+        const arrItemsCart: ICartItems[] = [];
+        const objItemsCart: ICartItems = {
+          id: this._id,
+          count: 1,
+          stock: this._stock,
+          price: this._price,
+        };
+        arrItemsCart.push(objItemsCart);
+        localStorage.setItem("cart-storage", JSON.stringify(arrItemsCart));
+      } else {
+        const objItemsCart: ICartItems = {
+          id: this._id,
+          count: 1,
+          stock: this._stock,
+          price: this._price,
+        };
+        const addItem = JSON.parse(localStorage.getItem("cart-storage") || "");
+        addItem.push(objItemsCart);
+        localStorage.setItem("cart-storage", JSON.stringify(addItem));
+      }
+      // удалять элементы из стореджа
+      if (!secondBtn.classList.contains("active") && lsCart !== null) {
+        secondBtn.innerHTML = "add to cart";
+        const newArr: ICartItems[] | null = [];
+        JSON.parse(lsCart).forEach((item: ICartItems) => {
+          if (item && item.id !== this._id) {
+            newArr?.push(item);
+          }
+        });
+        localStorage.setItem("cart-storage", JSON.stringify(newArr || ""));
+      } else {
+        secondBtn.innerHTML = "from cart";
+      }
+      const fullPrice = <HTMLElement>(
+        document.querySelector(".header__cost>span")
+      );
+      const currItems = <HTMLElement>document.querySelector(".basket__basket");
+      totalPrice(fullPrice);
+      addAllAmount(currItems);
+    });
   }
 }
 
