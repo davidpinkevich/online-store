@@ -11,7 +11,9 @@ import {
 import filterHandler from "./filter/filter-checbox";
 import multiRange from "./filter/multi-range";
 import { filterSearch } from "./filter/filter-search";
-import { filterRating } from "./filter/filter-rating";
+import { sortRating } from "./filter/sort-rating";
+import { sortPrice } from "./filter/sort-price";
+import { sortStock } from "./filter/sort-stock";
 
 const router = new Navigo("/", { hash: true });
 
@@ -90,7 +92,9 @@ router
     filterHandler();
     multiRange();
     filterSearch();
-    filterRating();
+    sortRating();
+    sortPrice();
+    sortStock();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
