@@ -223,11 +223,17 @@
         border-radius: 8px;
         padding: 20px;
         height: 100%;
-        // flex: 1 1 auto;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 260px;
         gap: 20px;
+
+        &.active {
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: 160px;
+          gap: 15px;
+        }
     }
 }
 
@@ -249,4 +255,22 @@
     &:focus {
         box-shadow: inset 0px 0px 3px 3px $mainColor;
     }
+}
+
+.search__change {
+    display: flex;
+    gap: 5px;
+}
+
+.search__change-one,
+.search__change-two {
+    font-size: $mainSize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 3px 3px black;
 }

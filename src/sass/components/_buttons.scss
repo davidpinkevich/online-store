@@ -73,7 +73,8 @@
   color: $mainColor;
   box-shadow: inset 0px 0px 3px 3px black;
   text-shadow: 2px 2px 2px black;
-  transition: all 0.3s;
+  transition-duration: 0.3s;
+  transition-property: background-color;
 }
 
 .button__body-add.active {

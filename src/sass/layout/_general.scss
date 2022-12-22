@@ -7,9 +7,11 @@ body {
     padding: 0 15px;
     flex-direction: column;
     background-color: $mainBackground;
+    overflow-x: hidden;
 }
 [class*="__container"]{
     max-width: 1400px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
