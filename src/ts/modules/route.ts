@@ -14,6 +14,8 @@ import { filterSearch } from "./filter/filter-search";
 import { sortRating } from "./filter/sort-rating";
 import { sortPrice } from "./filter/sort-price";
 import { sortStock } from "./filter/sort-stock";
+import { changeViewItems } from "./change-view/ls-change-for-view";
+import { changeView } from "./change-view/change-view";
 
 const router = new Navigo("/", { hash: true });
 
@@ -81,6 +83,10 @@ router
                 <button class="search__btn-stock">sort by stock</button>
             </div>
             <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
+            <div class="search__change">
+                <div class="search__change-one">1</div>
+                <div class="search__change-two">2</div>
+            </div>
         </div>
         <div class="main__items-body"></div>
     </div>
@@ -95,6 +101,8 @@ router
     sortRating();
     sortPrice();
     sortStock();
+    changeViewItems();
+    changeView();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
