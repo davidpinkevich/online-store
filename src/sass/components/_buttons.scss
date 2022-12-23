@@ -1,24 +1,20 @@
 //кнопки сброса и сохранки 
 .button {
+    text-shadow: 2px 2px 2px black;
     box-shadow: inset 0px 0px 3px 3px black;
     border-radius: 8px;
     padding: 10px;
 
     &__add {
-        display: none;
         width: 250px;
-        height: 50px;    
+        height: 50px;
         color: $mainColor;
+        display: block;
         background-color: $secondColor;
         text-transform: uppercase;
     
         &:hover {
             background-color: darken($secondColor, 5);
-        }
-    
-
-        &-active {
-            display: block;
         }
     }
 
@@ -55,6 +51,14 @@
     }
 }
 
+.button__add {
+    transition: all 0.3s;
+}
+
+.button__add.active {
+    background-color: #8e600a;
+}
+
 // кнопки добавить/удалить товар и инфрмация о товаре на основных карточках
 .button__body-info,
 .button__body-add {
@@ -69,7 +73,8 @@
   color: $mainColor;
   box-shadow: inset 0px 0px 3px 3px black;
   text-shadow: 2px 2px 2px black;
-  transition: all 0.3s;
+  transition-duration: 0.3s;
+  transition-property: background-color;
 }
 
 .button__body-add.active {
@@ -90,4 +95,39 @@
     text-shadow: 2px 2px 2px black;
     background-color: $secondColor;
     color: $mainColor;
+}
+
+// кнопки фильтра
+
+.search__btn {
+    display: flex;
+    gap: 10px;
+}
+
+.search__btn-rating,
+.search__btn-price,
+.search__btn-stock {
+    font-size: $secondSize;
+    color: $mainColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 3px 3px black;
+    background-color: inherit;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.search__btn-rating.active,
+.search__btn-price.active,
+.search__btn-stock.active {
+    box-shadow: inset 0px 0px 3px 3px white;
+    cursor: auto;
+    &:hover {
+        transform: scale(1);
+    }
 }

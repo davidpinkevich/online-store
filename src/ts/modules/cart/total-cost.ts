@@ -22,6 +22,9 @@ export function totalPrice(price: HTMLElement): void {
           -1
         )}`;
       }
+      if (amount === 0) {
+        price.innerHTML = "0.00";
+      }
     }
   }
 }

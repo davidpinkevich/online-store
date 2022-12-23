@@ -8,7 +8,6 @@
 // левая панель с фильтрами
 .filter {
     flex: 0 0 200px;
-    font-family: $mainFontFamily;
     color: $mainColor;
 
     hr {
@@ -223,19 +222,25 @@
         box-shadow: inset 0px 0px 3px 3px black;
         border-radius: 8px;
         padding: 20px;
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 260px;
         gap: 20px;
-        flex-wrap: wrap;
+
+        &.active {
+          grid-template-columns: repeat(5, 1fr);
+          grid-template-rows: 160px;
+          gap: 15px;
+        }
     }
 }
 
 .search {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 .search-input {
     box-shadow: inset 0px 0px 3px 3px black;
@@ -250,4 +255,22 @@
     &:focus {
         box-shadow: inset 0px 0px 3px 3px $mainColor;
     }
+}
+
+.search__change {
+    display: flex;
+    gap: 5px;
+}
+
+.search__change-one,
+.search__change-two {
+    font-size: $mainSize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 3px 3px black;
 }
