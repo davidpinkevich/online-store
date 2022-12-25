@@ -1,5 +1,5 @@
-import { filterGoods } from "./filter-goods";
-import { addQueryString } from "./create-query-string";
+import { filterGoods } from "../filter-goods";
+import { addQueryString } from "../query/create-query-string";
 
 const multiRange = () => {
   const rangeStock: NodeListOf<HTMLInputElement> = document.querySelectorAll(

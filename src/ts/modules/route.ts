@@ -7,17 +7,17 @@ import changeMainPhoto from "./change-main-photo";
 import {
   createBrandsCheckbox,
   createСategoriesCheckbox,
-} from "./filter/create-checkbox";
-import filterHandler from "./filter/filter-checbox";
-import multiRange from "./filter/multi-range";
-import { filterSearch } from "./filter/filter-search";
-import { sortRating } from "./filter/sort-rating";
-import { sortPrice } from "./filter/sort-price";
-import { sortStock } from "./filter/sort-stock";
+} from "./filter/checkbox/create-checkbox";
+import filterHandler from "./filter/checkbox/filter-checbox";
+import multiRange from "./filter/range/multi-range";
+import { filterSearch } from "./filter/search/filter-search";
+import { sortRating } from "./filter/sort/sort-rating";
+import { sortPrice } from "./filter/sort/sort-price";
+import { sortStock } from "./filter/sort/sort-stock";
 import { changeViewItems } from "./change-view/ls-change-for-view";
 import { changeView } from "./change-view/change-view";
 import { filterGoods } from "./filter/filter-goods";
-import { activeFilters } from "./filter/acrive-filters";
+import { activeFilters } from "./filter/active-filters";
 
 const router = new Navigo("/", { hash: true });
 

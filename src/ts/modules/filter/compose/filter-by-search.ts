@@ -1,5 +1,5 @@
 import { TCompose, TGoodsData } from "../../../types/types";
-import { filterStore } from "../filter-store";
+import { filterStore } from "../data/filter-store";
 
 export const filterBySearch: TCompose = (data: TGoodsData[]): TGoodsData[] => {
   const src = filterStore.search.toLowerCase();

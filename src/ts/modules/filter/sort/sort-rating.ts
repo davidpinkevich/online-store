@@ -1,7 +1,7 @@
-import { filterGoods } from "./filter-goods";
-import { addSearchQueryString } from "./create-query-string";
+import { filterGoods } from "../filter-goods";
+import { addSearchQueryString } from "../query/create-query-string";
 
-export function sortPrice(): void {
+export function sortRating(): void {
   const inputRating = <HTMLButtonElement>(
     document.querySelector(".search__btn-rating")
   );
@@ -11,18 +11,17 @@ export function sortPrice(): void {
   const inputStock = <HTMLButtonElement>(
     document.querySelector(".search__btn-stock")
   );
-  inputPrice.addEventListener("click", () => {
-    addSearchQueryString("sort", "price");
+  inputRating.addEventListener("click", () => {
+    addSearchQueryString("sort", "rating");
 
-    inputRating.classList.remove("active");
-    inputRating.disabled = false;
+    inputRating.classList.add("active");
+    inputRating.disabled = true;
 
-    inputPrice.classList.add("active");
-    inputPrice.disabled = true;
+    inputPrice.classList.remove("active");
+    inputPrice.disabled = false;
 
     inputStock.classList.remove("active");
     inputStock.disabled = false;
-
     filterGoods();
   });
 }

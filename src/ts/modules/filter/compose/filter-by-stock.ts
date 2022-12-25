@@ -1,5 +1,5 @@
 import { TCompose, TGoodsData } from "../../../types/types";
-import { filterStore } from "../filter-store";
+import { filterStore } from "../data/filter-store";
 
 export const filterByStock: TCompose = (data: TGoodsData[]): TGoodsData[] => {
   return data.filter((datum) => {

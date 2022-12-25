@@ -1,5 +1,5 @@
 import { TCompose, TGoodsData } from "../../../types/types";
-import { filterStore } from "../filter-store";
+import { filterStore } from "../data/filter-store";
 
 export const sortByRating: TCompose = (data: TGoodsData[]): TGoodsData[] => {
   if (filterStore.sort === "rating") {

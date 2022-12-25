@@ -1,4 +1,4 @@
-import { TGoodsData } from "../../types/types";
+import { TGoodsData } from "../../../types/types";
 import Checkbox from "./Checkbox";
 // import { goodsData } from "../../data/goods-data";
 

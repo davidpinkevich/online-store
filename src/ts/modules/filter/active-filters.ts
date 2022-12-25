@@ -1,4 +1,4 @@
-import { filterStore } from "./filter-store";
+import { filterStore } from "./data/filter-store";
 
 export const activeFilters = () => {
   const categoriesCheckbox: NodeListOf<HTMLInputElement> =

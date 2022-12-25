@@ -1,5 +1,5 @@
-import { filterGoods } from "./filter-goods";
-import { addSearchQueryString } from "./create-query-string";
+import { filterGoods } from "../filter-goods";
+import { addSearchQueryString } from "../query/create-query-string";
 
 export function sortStock(): void {
   const inputRating = <HTMLButtonElement>(
