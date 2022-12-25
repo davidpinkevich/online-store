@@ -1,5 +1,5 @@
-import { filterStore } from "./filter-store";
 import { filterGoods } from "./filter-goods";
+import { addSearchQueryString } from "./create-query-string";
 
 export function sortPrice(): void {
   const inputRating = <HTMLButtonElement>(
@@ -12,9 +12,7 @@ export function sortPrice(): void {
     document.querySelector(".search__btn-stock")
   );
   inputPrice.addEventListener("click", () => {
-    filterStore.price = true;
-    filterStore.rating = false;
-    filterStore.stock = false;
+    addSearchQueryString("sort", "price");
 
     inputRating.classList.remove("active");
     inputRating.disabled = false;

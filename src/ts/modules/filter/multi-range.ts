@@ -1,5 +1,5 @@
-import { filterStore } from "./filter-store";
 import { filterGoods } from "./filter-goods";
+import { addQueryString } from "./create-query-string";
 
 const multiRange = () => {
   const rangeStock: NodeListOf<HTMLInputElement> = document.querySelectorAll(
@@ -49,8 +49,7 @@ const multiRange = () => {
       stockMin.textContent = rangeStock[0].value;
       stockMax.textContent = rangeStock[1].value;
 
-      filterStore.minStock = minValue;
-      filterStore.maxStock = maxValue;
+      addQueryString("stock", `${rangeStock[0].value}↕${rangeStock[1].value}`);
 
       filterGoods();
     });
@@ -78,8 +77,7 @@ const multiRange = () => {
       priceMin.textContent = priceStock[0].value;
       priceMax.textContent = priceStock[1].value;
 
-      filterStore.minPrice = minValue;
-      filterStore.maxPrice = maxValue;
+      addQueryString("price", `${priceStock[0].value}↕${priceStock[1].value}`);
 
       filterGoods();
     });

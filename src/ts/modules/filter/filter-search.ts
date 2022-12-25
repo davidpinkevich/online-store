@@ -1,10 +1,10 @@
-import { filterStore } from "./filter-store";
 import { filterGoods } from "./filter-goods";
+import { addSearchQueryString } from "./create-query-string";
 
 export function filterSearch(): void {
   const inputSearch = <HTMLInputElement>document.querySelector(".search-input");
   inputSearch.addEventListener("input", () => {
-    filterStore.search = inputSearch.value;
+    addSearchQueryString("search", inputSearch.value);
     filterGoods();
   });
 }

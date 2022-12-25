@@ -1,4 +1,4 @@
-import { filterStore } from "./filter-store";
+import { addQueryString } from "./create-query-string";
 import { filterGoods } from "./filter-goods";
 
 const filterHandler = () => {
@@ -10,13 +10,17 @@ const filterHandler = () => {
   categoriesCheckbox.forEach((categoryCheckbox) => {
     categoryCheckbox.addEventListener("input", (e) => {
       const target = e.target as HTMLInputElement;
-      if (target.checked) {
-        filterStore.categories.push(target.value);
-      } else {
-        filterStore.categories = filterStore.categories.filter(
-          (el) => el !== target.value
-        );
-      }
+      addQueryString("category", target.value);
+      // if (target.checked) {
+      //   addQueryString("category", target.value);
+      //   // filterStore.categories.push(target.value);
+      // } else {
+      //   addQueryString("category", target.value);
+      //   // filterStore.categories = filterStore.categories.filter(
+      //   //   (el) => el !== target.value
+      //   // );
+      // }
+      // readQueryString();
       filterGoods();
     });
   });
@@ -24,13 +28,16 @@ const filterHandler = () => {
   brandsCheckbox.forEach((brandCheckbox) => {
     brandCheckbox.addEventListener("input", (e) => {
       const target = e.target as HTMLInputElement;
-      if (target.checked) {
-        filterStore.brands.push(target.value);
-      } else {
-        filterStore.brands = filterStore.brands.filter(
-          (el) => el !== target.value
-        );
-      }
+      addQueryString("brand", target.value);
+      // if (target.checked) {
+      //   addQueryString("brand", target.value);
+      //   // filterStore.brands.push(target.value);
+      // } else {
+      //   addQueryString("brand", target.value);
+      //   // filterStore.brands = filterStore.brands.filter(
+      //   //   (el) => el !== target.value
+      //   // );
+      // }
       filterGoods();
     });
   });
