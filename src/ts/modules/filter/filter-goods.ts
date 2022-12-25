@@ -3,6 +3,7 @@ import { TGoodsData } from "../../types/types";
 import { createAllItems } from "../add-all-items";
 import { myCompose } from "./compose/compose";
 import { readQueryString } from "./query/read-query-string";
+import { addAmountItems } from "./amount/amount-items";
 
 export const filterGoods = () => {
   readQueryString();
@@ -11,4 +12,5 @@ export const filterGoods = () => {
   const body = <HTMLElement>document.querySelector(".main__items-body");
   body.innerHTML = "";
   createAllItems(data);
+  addAmountItems();
 };
