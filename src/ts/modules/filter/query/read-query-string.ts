@@ -1,7 +1,6 @@
-import { filterStore } from "./filter-store";
+import { filterStore } from "../data/filter-store";
 
 export const readQueryString = (): void => {
-  console.log(window.location.search);
   const searchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(searchParams.entries());
   filterStore.categories = params.category ? params.category.split("↕") : [];

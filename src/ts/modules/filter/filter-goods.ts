@@ -2,7 +2,7 @@ import { goodsData } from "../../data/goods-data";
 import { TGoodsData } from "../../types/types";
 import { createAllItems } from "../add-all-items";
 import { myCompose } from "./compose/compose";
-import { readQueryString } from "./read-query-string";
+import { readQueryString } from "./query/read-query-string";
 
 export const filterGoods = () => {
   readQueryString();

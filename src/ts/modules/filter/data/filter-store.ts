@@ -1,4 +1,4 @@
-import { TFilterStore } from "../../types/types";
+import { TFilterStore } from "../../../types/types";
 
 export const filterStore: TFilterStore = {
   categories: [],
@@ -9,7 +9,4 @@ export const filterStore: TFilterStore = {
   maxPrice: 1749,
   search: "",
   sort: "",
-  // rating: false,
-  // price: false,
-  // stock: false,
 };

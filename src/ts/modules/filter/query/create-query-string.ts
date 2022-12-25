@@ -1,7 +1,6 @@
 const searchParams = new URLSearchParams(window.location.search);
 
 export const addQueryString = (key: string, value: string): void => {
-  console.log(window.location.search);
   if (searchParams.has(key)) {
     if (key === "stock") {
       searchParams.delete(key);
