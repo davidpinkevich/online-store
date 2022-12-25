@@ -77,9 +77,14 @@
 
     .checkbox {
         position: relative;
+        transition: all 0.1s;
+        &:hover {
+          color: $secondColor;
+        }
     }
 
     .checkbox__input {
+        transition: all 0.2s;
         appearance: none;
         position: absolute;
     }
@@ -87,6 +92,9 @@
     .checkbox__label {
         font-size: 18px;
         padding-left: 30px;
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
     }
 
     .checkbox__label:before {
@@ -100,7 +108,11 @@
         top: 0;
         left: 0;
         z-index: 1;
-        background-color: #fff;
+        background-color: rgb(69, 63, 63);
+        box-shadow: inset 0px 0px 3px 3px black;
+        &::first-letter {
+          text-transform: uppercase;
+      }
     }
 
     .checkbox__label::after {
@@ -110,6 +122,7 @@
         height: 16px;
         border-radius: 5px;
         background: url("./../icons/check.png") no-repeat;
+        transform: scale(0.8);
         width: 16px;
         height: 16px;
         opacity: 0;
@@ -120,7 +133,8 @@
     }
 
     .checkbox__input:checked+.checkbox__label:before {
-        border-color: $secondColor;
+      transition: all 0.2s;
+      box-shadow: inset 0px 0px 2px 2px black;
     }
 
     .checkbox__input:checked+.checkbox__label:after {
@@ -154,6 +168,13 @@
 
 }
 
+// попытка изменять все критерии фильтрации динамически
+.checkbox.disabled {
+    color: rgb(101, 95, 95);
+    // pointer-events: none;
+}
+//-----------------------------------------------
+
 .lel {
     color: $mainColor;
 }
@@ -165,12 +186,24 @@
     text-shadow: 2px 2px 2px black;
 
     &-items {
+      cursor: pointer;
         height: 200px;
         overflow-y: scroll;
         font-size: 20px;
         display: flex;
         flex-direction: column;
         gap: 5px;
+        padding: 0px 8px;
+        &::-webkit-scrollbar {
+            border-radius: 8px;
+            width: 12px;
+            background-color: rgb(31, 30, 30);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $secondColor;
+            border-radius: 8px;
+            box-shadow: inset 0px 0px 4px 4px black;
+        }
     }
 
     &-title {
@@ -194,6 +227,17 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
+        padding: 0px 8px;
+        &::-webkit-scrollbar {
+          border-radius: 8px;
+          width: 12px;
+          background-color: rgb(31, 30, 30);
+      }
+      &::-webkit-scrollbar-thumb {
+          background-color: $secondColor;
+          border-radius: 8px;
+          box-shadow: inset 0px 0px 4px 4px black;
+      }
     }
 
     &-title {
