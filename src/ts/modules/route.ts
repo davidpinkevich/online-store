@@ -1,7 +1,7 @@
 import Navigo from "navigo";
 import { goodsData } from "../data/goods-data";
 import { TIdCheck } from "../types/types";
-import { createAllItems, createGood } from "./add-all-items";
+import { createGood } from "./add-all-items";
 import { createCart } from "./cart/cart-block";
 import changeMainPhoto from "./change-main-photo";
 import {
@@ -16,6 +16,8 @@ import { sortPrice } from "./filter/sort-price";
 import { sortStock } from "./filter/sort-stock";
 import { changeViewItems } from "./change-view/ls-change-for-view";
 import { changeView } from "./change-view/change-view";
+import { filterGoods } from "./filter/filter-goods";
+import { activeFilters } from "./filter/acrive-filters";
 
 const router = new Navigo("/", { hash: true });
 
@@ -92,7 +94,6 @@ router
     </div>
 </div>
     `;
-    createAllItems(goodsData);
     createBrandsCheckbox(goodsData);
     createСategoriesCheckbox(goodsData);
     filterHandler();
@@ -101,6 +102,8 @@ router
     sortRating();
     sortPrice();
     sortStock();
+    filterGoods();
+    activeFilters();
     changeViewItems();
     changeView();
   })
