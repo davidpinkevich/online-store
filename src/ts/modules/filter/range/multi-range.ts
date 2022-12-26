@@ -5,7 +5,7 @@ const multiRange = () => {
   const rangeStock: NodeListOf<HTMLInputElement> = document.querySelectorAll(
     ".filter__stock input"
   );
-  const priceStock: NodeListOf<HTMLInputElement> = document.querySelectorAll(
+  const rangePrice: NodeListOf<HTMLInputElement> = document.querySelectorAll(
     ".filter__price input"
   );
   const progressStock = document.querySelector(
@@ -34,6 +34,7 @@ const multiRange = () => {
 
       const stockGap = 5;
       const target = e.target as HTMLDivElement;
+      const max: number = +rangeStock[1].max;
 
       if (maxValue - minValue < stockGap) {
         if (target.classList.contains("range-min")) {
@@ -42,8 +43,8 @@ const multiRange = () => {
           rangeStock[1].value = `${minValue + stockGap}`;
         }
       } else {
-        progressStock.style.left = (minValue / 150) * 100 + "%";
-        progressStock.style.right = 100 - (maxValue / 150) * 100 + "%";
+        progressStock.style.left = (minValue / max) * 100 + "%";
+        progressStock.style.right = 100 - (maxValue / max) * 100 + "%";
       }
 
       stockMin.textContent = rangeStock[0].value;
@@ -55,29 +56,30 @@ const multiRange = () => {
     });
   });
 
-  priceStock.forEach((input): void => {
+  rangePrice.forEach((input): void => {
     input.addEventListener("input", (e) => {
-      const minValue: number = parseInt(priceStock[0].value);
-      const maxValue: number = parseInt(priceStock[1].value);
+      const minValue: number = parseInt(rangePrice[0].value);
+      const maxValue: number = parseInt(rangePrice[1].value);
 
       const priceGap = 50;
       const target = e.target as HTMLDivElement;
+      const max: number = +rangePrice[1].max;
 
       if (maxValue - minValue < priceGap) {
         if (target.classList.contains("range-min")) {
-          priceStock[0].value = `${maxValue - priceGap}`;
+          rangePrice[0].value = `${maxValue - priceGap}`;
         } else {
-          priceStock[1].value = `${minValue + priceGap}`;
+          rangePrice[1].value = `${minValue + priceGap}`;
         }
       } else {
-        progressPrice.style.left = (minValue / 1749) * 100 + "%";
-        progressPrice.style.right = 100 - (maxValue / 1749) * 100 + "%";
+        progressPrice.style.left = (minValue / max) * 100 + "%";
+        progressPrice.style.right = 100 - (maxValue / max) * 100 + "%";
       }
 
-      priceMin.textContent = priceStock[0].value;
-      priceMax.textContent = priceStock[1].value;
+      priceMin.textContent = rangePrice[0].value;
+      priceMax.textContent = rangePrice[1].value;
 
-      addQueryString("price", `${priceStock[0].value}↕${priceStock[1].value}`);
+      addQueryString("price", `${rangePrice[0].value}↕${rangePrice[1].value}`);
 
       filterGoods();
     });
