@@ -132,7 +132,7 @@ router
     changeMainPhoto();
   })
   .on("/cart/", () => {
-    createCart();
+    createCart("RS", "2022", 30, 20);
   })
   .notFound(() => {
     root.innerHTML = `

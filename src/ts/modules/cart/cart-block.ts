@@ -3,8 +3,14 @@ import cartItem from "./cart-item";
 import { ICartItems } from "../../types/types";
 import { totalPrice } from "./total-cost";
 import { addAllAmount } from "./total-amount";
+import { addEventInput } from "./event-input";
 
-export function createCart() {
+export function createCart(
+  fPromo: string,
+  sPromo: string,
+  fPerc: number,
+  sPerc: number
+) {
   const main = <HTMLElement>document.getElementById("root");
   const storage = JSON.parse(localStorage.getItem("cart-storage") || "");
   main.innerHTML = "";
@@ -71,6 +77,22 @@ export function createCart() {
     totalAmount.append(dollar);
     totalPrice(totalItemsAmount);
     costBody.append(totalAmount);
+    // вставка поля для ввода промокода
+    const inputPromo = document.createElement("input");
+    inputPromo.classList.add("cost__body-promo");
+    inputPromo.type = "text";
+    inputPromo.placeholder = "Enter promocode (RS, 2022)";
+    costBody.append(inputPromo);
+    // добавляе в ls промы
+    const lsPromo = localStorage.getItem("promo");
+    const objPromo = {
+      [fPromo]: false,
+      [sPromo]: false,
+      discOne: fPerc,
+      discTwo: sPerc,
+    };
+    if (!lsPromo) localStorage.setItem("promo", JSON.stringify(objPromo));
+    addEventInput(fPromo, sPromo, fPerc, sPerc);
     // общая цена в хедере--------------------------
     const fullPrice = <HTMLElement>document.querySelector(".header__cost>span");
     totalPrice(fullPrice);
