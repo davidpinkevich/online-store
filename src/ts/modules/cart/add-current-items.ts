@@ -24,7 +24,6 @@ function addItemCurrent(
   const secondPromo = Object.keys(lsPromo)[1];
   const firstPercent = lsPromo["discOne"];
   const secondPercent = lsPromo["discTwo"];
-  console.log(firstPromo, secondPromo, firstPercent, secondPercent);
   const newLs: ICartItems[] = [];
   const secondLs: ICartItems[] = [];
   const mainCost = <HTMLElement>document.querySelector(".header__cost>span");

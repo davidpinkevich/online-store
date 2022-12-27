@@ -18,7 +18,6 @@ export function totalDiscountPrice(
   if (lsDisc[sPromo] === true) {
     numb += secondPercent / 100;
   }
-  console.log(numb);
   if (localStorage.getItem("cart-storage")) {
     const lsCart: ICartItems[] | null = JSON.parse(
       localStorage.getItem("cart-storage") || ""

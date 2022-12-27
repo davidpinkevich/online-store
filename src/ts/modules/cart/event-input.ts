@@ -19,7 +19,6 @@ export function addEventInput(
   const discCost = <HTMLElement>(
     document.querySelector(".total__promo .cost__body-price-amount")
   );
-  console.log(newCost);
 
   if (lsPromo[firstPromo] === true || lsPromo[secondPromo] === true) {
     newCost.style.display = "flex";
@@ -120,7 +119,6 @@ export function addEventInput(
 
   // события на кнопки для удаления промов
   firstDelete.addEventListener("click", () => {
-    console.log(lsPromo[firstPromo]);
     lsPromo[firstPromo] = false;
     localStorage.setItem("promo", JSON.stringify(lsPromo));
     btnInfoPromoFirst.style.display = "none";
@@ -138,7 +136,6 @@ export function addEventInput(
   });
 
   secondDelete.addEventListener("click", () => {
-    console.log(lsPromo[secondPromo]);
     lsPromo[secondPromo] = false;
     localStorage.setItem("promo", JSON.stringify(lsPromo));
     btnInfoPromoSecond.style.display = "none";

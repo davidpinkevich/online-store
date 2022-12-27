@@ -55,8 +55,12 @@
 }
 
 .cost__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
     height: 63vh;
-    padding: 10px;
+    padding: 10px 25px;
     color: $mainColor;
     font-size: $mainSize;
     box-shadow: inset 0px 0px 3px 3px black;
@@ -81,4 +85,52 @@
     }
 }
 
+.cost__body-promo {
+    margin-top: 10px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    background-color: inherit;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    font-size: $secondSize;
+    transition: all 0.3s;
+    color: $mainColor;
+    text-shadow: 2px 2px 2px black;
+    &:focus {
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
 
+    &.true {
+        box-shadow: inset 0px 0px 5px 5px $secondColor;
+        color: $secondColor;
+        transform: scale(1.03);
+    }
+}
+
+.promo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+}
+
+.promo__add {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    & span {
+        color: $secondColor;
+    }
+}
+
+.promo__remove {
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+}
