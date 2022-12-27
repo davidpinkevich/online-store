@@ -11,7 +11,7 @@ export function createAllItems(items: TGoodsData[]): void {
 
   items.forEach((item) => {
     new Product(item).createItem(
-      `/good/${item.id}`,
+      `${window.location.search ? "#" : ""}/good/${item.id}`,
       <HTMLElement>document.querySelector(".main__items-body")
     );
   });

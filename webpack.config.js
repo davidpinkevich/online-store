@@ -55,4 +55,7 @@ module.exports = {
             extensions: 'ts',
         })
     ],
+    devServer: {
+        open: true,
+    },
 };
