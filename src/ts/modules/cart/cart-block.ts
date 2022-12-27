@@ -97,8 +97,13 @@ export function createCart(
     const fullPrice = <HTMLElement>document.querySelector(".header__cost>span");
     totalPrice(fullPrice);
     // общее кол-во товаров в хедере + заблочим нажатие на корзину
-    const currItems = <HTMLElement>document.querySelector(".basket__basket");
-    currItems.style.pointerEvents = "none";
+    const currItems = <HTMLElement>(
+      document.querySelector(".basket__basket-amount")
+    );
+    const currItemsBlock = <HTMLElement>(
+      document.querySelector(".basket__basket")
+    );
+    currItemsBlock.style.pointerEvents = "none";
     addAllAmount(currItems);
     // вставка блочков с item
     if (storage.length > 0) {

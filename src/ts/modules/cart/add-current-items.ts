@@ -27,7 +27,9 @@ function addItemCurrent(
   const newLs: ICartItems[] = [];
   const secondLs: ICartItems[] = [];
   const mainCost = <HTMLElement>document.querySelector(".header__cost>span");
-  const currItems = <HTMLElement>document.querySelector(".basket__basket");
+  const currItems = <HTMLElement>(
+    document.querySelector(".basket__basket-amount")
+  );
   const mainCurrentRight = <HTMLElement>(
     document.querySelector(".cost__body-items-current")
   );

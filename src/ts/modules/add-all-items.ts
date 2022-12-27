@@ -16,7 +16,9 @@ export function createAllItems(items: TGoodsData[]): void {
     );
   });
   const fullPrice = <HTMLElement>document.querySelector(".header__cost>span");
-  const currItems = <HTMLElement>document.querySelector(".basket__basket");
+  const currItems = <HTMLElement>(
+    document.querySelector(".basket__basket-amount")
+  );
   totalPrice(fullPrice);
   addAllAmount(currItems);
   changeView();
@@ -30,7 +32,9 @@ export function createAllItems(items: TGoodsData[]): void {
 export const createGood = (item: TGoodsData) => {
   new Product(item).render();
   const fullPrice = <HTMLElement>document.querySelector(".header__cost>span");
-  const currItems = <HTMLElement>document.querySelector(".basket__basket");
+  const currItems = <HTMLElement>(
+    document.querySelector(".basket__basket-amount")
+  );
   totalPrice(fullPrice);
   addAllAmount(currItems);
 };
