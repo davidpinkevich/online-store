@@ -1,6 +1,6 @@
 import { filterStore } from "./data/filter-store";
 
-export const activeFilters = () => {
+export const activeFilters = (): void => {
   const categoriesCheckbox: NodeListOf<HTMLInputElement> =
     document.querySelectorAll(".filter__category .checkbox__input");
   const brandsCheckbox: NodeListOf<HTMLInputElement> =
@@ -39,6 +39,8 @@ export const activeFilters = () => {
   const progressPrice = document.querySelector(
     ".filter__price .progress"
   ) as HTMLDivElement;
+  const one = <HTMLButtonElement>document.querySelector(".search__change-one");
+  const two = <HTMLButtonElement>document.querySelector(".search__change-two");
 
   filterStore.categories.forEach((category) => {
     categoriesCheckbox.forEach((categoryCheckbox) => {
@@ -108,4 +110,14 @@ export const activeFilters = () => {
   progressPrice.style.left = (filterStore.minPrice / maximumPrice) * 100 + "%";
   progressPrice.style.right =
     100 - (filterStore.maxPrice / maximumPrice) * 100 + "%";
+
+  if (filterStore.big === "true") {
+    two.classList.remove("search__change-two_active");
+    one.classList.add("search__change-one_active");
+  }
+
+  if (filterStore.big === "false") {
+    one.classList.remove("search__change-one_active");
+    two.classList.add("search__change-two_active");
+  }
 };
