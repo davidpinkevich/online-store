@@ -1,0 +1,78 @@
+import { TGoodsData } from "../../types/types";
+// import { addQueryString } from "./query/create-query-string";
+// import { filterStore } from "./data/filter-store";
+
+export function rangeExclusion(data: TGoodsData[]): void {
+  const arrStock: number[] = [];
+  data.forEach((item: TGoodsData) => {
+    arrStock.push(item.stock);
+  });
+
+  const arrPrice: number[] = [];
+  data.forEach((item: TGoodsData) => {
+    arrPrice.push(item.price);
+  });
+  // для Stock
+  const stockMin = Math.min(...arrStock);
+  const stockMax = Math.max(...arrStock);
+
+  const rangeStockMin = <HTMLInputElement>document.getElementById("stockMin");
+  const rangeStockMax = <HTMLInputElement>document.getElementById("stockMax");
+  console.log(isFinite(stockMin), typeof stockMin);
+
+  const arrowStock = <HTMLElement>(
+    document.querySelector(".filter__stock-arrow")
+  );
+  const textStockMin = <HTMLElement>(
+    document.querySelector(".filter__stock-min")
+  );
+  const textStockMax = <HTMLElement>(
+    document.querySelector(".filter__stock-max")
+  );
+  if (isFinite(stockMin) || isFinite(stockMax)) {
+    rangeStockMin.value = String(stockMin);
+    rangeStockMax.value = String(stockMax);
+
+    textStockMin.innerHTML = `${stockMin}`;
+    textStockMax.innerHTML = `${stockMax}`;
+    arrowStock.innerHTML = "⟷";
+  } else {
+    rangeStockMin.value = String(2);
+    rangeStockMax.value = String(150);
+
+    textStockMin.innerHTML = "";
+    textStockMax.innerHTML = "";
+    arrowStock.innerHTML = "not found";
+  }
+  // для Price
+  const priceMin = Math.min(...arrPrice);
+  const priceMax = Math.max(...arrPrice);
+
+  const rangePriceMin = <HTMLInputElement>document.getElementById("priceMin");
+  const rangePriceMax = <HTMLInputElement>document.getElementById("priceMax");
+  const textPriceMin = <HTMLElement>(
+    document.querySelector(".filter__price-min")
+  );
+  const textPriceMax = <HTMLElement>(
+    document.querySelector(".filter__price-max")
+  );
+  const arrowPrice = <HTMLElement>(
+    document.querySelector(".filter__price-arrow")
+  );
+
+  if (isFinite(priceMin) || isFinite(priceMax)) {
+    rangePriceMin.value = String(priceMin);
+    rangePriceMax.value = String(priceMax);
+
+    textPriceMin.innerHTML = `${priceMin}`;
+    textPriceMax.innerHTML = `${priceMax}`;
+    arrowPrice.innerHTML = "⟷";
+  } else {
+    rangePriceMin.value = String(10);
+    rangePriceMax.value = String(1749);
+
+    textPriceMin.innerHTML = "";
+    textPriceMax.innerHTML = "";
+    arrowPrice.innerHTML = "not found";
+  }
+}

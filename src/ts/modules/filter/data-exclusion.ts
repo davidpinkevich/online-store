@@ -1,5 +1,6 @@
 import { TGoodsData } from "../../types/types";
 import { filterStore } from "./data/filter-store";
+// import { addQueryString } from "./query/create-query-string";
 
 export const dataEXclusion = (data: TGoodsData[]): void => {
   const brandsCheckbox: NodeListOf<HTMLElement> = document.querySelectorAll(
@@ -141,4 +142,29 @@ export const dataEXclusion = (data: TGoodsData[]): void => {
       if (numb === 0) a.classList.add("disabled");
     });
   }
+  // попытка двигать
+  const arrStock: number[] = [];
+  data.forEach((item: TGoodsData) => {
+    arrStock.push(item.stock);
+  });
+
+  const arrPrice: number[] = [];
+  data.forEach((item: TGoodsData) => {
+    arrPrice.push(item.price);
+  });
+
+  // для Stock
+  // const stockMin = Math.min(...arrStock);
+  // const stockMax = Math.max(...arrStock);
+  // // для Price
+  // const priceMin = Math.min(...arrPrice);
+  // const priceMax = Math.max(...arrPrice);
+
+  // addQueryString("stock", `${stockMin}↕${stockMax}`);
+  // addQueryString("price", `${priceMin}↕${priceMax}`);
+
+  // if (data.length === 0) {
+  //   addQueryString("stock", `${2}↕${150}`);
+  //   addQueryString("price", `${10}↕${1749}`);
+  // }
 };
