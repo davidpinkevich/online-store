@@ -9,6 +9,7 @@
 .filter {
     flex: 0 0 200px;
     color: $mainColor;
+    text-shadow: 2px 2px 2px black;
 
     hr {
         height: 2px;
@@ -49,6 +50,7 @@
         right: 0%;
         border-radius: 5px;
         background: $secondColor;
+        box-shadow: 0px 0px 3px 3px black;
     }
 
     .range-input {
@@ -57,7 +59,7 @@
 
     .range-input input {
         position: absolute;
-        top: -7px;
+        top: -6px;
         height: 5px;
         width: 100%;
         pointer-events: none;
@@ -66,13 +68,14 @@
     }
 
     input[type="range"]::-webkit-slider-thumb {
-        height: 17px;
-        width: 17px;
+        height: 22px;
+        width: 22px;
         border-radius: 50%;
         appearance: none;
         border: none;
         pointer-events: auto;
         background: $secondColor;
+        box-shadow: inset 0px 0px 3px 3px black;
     }
 
     .checkbox {
