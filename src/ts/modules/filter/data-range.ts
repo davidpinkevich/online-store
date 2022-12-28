@@ -75,4 +75,17 @@ export function rangeExclusion(data: TGoodsData[]): void {
     textPriceMax.innerHTML = "";
     arrowPrice.innerHTML = "not found";
   }
+
+  const progressStock = document.querySelector(
+    ".filter__stock .progress"
+  ) as HTMLDivElement;
+  const progressPrice = document.querySelector(
+    ".filter__price .progress"
+  ) as HTMLDivElement;
+
+  progressStock.style.left = (stockMin / +rangeStockMax.max) * 100 + "%";
+  progressStock.style.right = 100 - (stockMax / +rangeStockMax.max) * 100 + "%";
+
+  progressPrice.style.left = (priceMin / +rangePriceMax.max) * 100 + "%";
+  progressPrice.style.right = 100 - (priceMax / +rangePriceMax.max) * 100 + "%";
 }

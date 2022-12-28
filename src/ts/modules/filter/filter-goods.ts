@@ -2,7 +2,7 @@ import { goodsData } from "../../data/goods-data";
 import { TGoodsData } from "../../types/types";
 import { createAllItems } from "../add-all-items";
 import { myCompose } from "./compose/compose";
-import { dataEXclusion } from "./data-exclusion";
+import { dataExclusion } from "./data-exclusion";
 import { readQueryString } from "./query/read-query-string";
 import { addAmountItems } from "./amount/amount-items";
 import { rangeExclusion } from "./data-range";
@@ -13,7 +13,7 @@ export const filterGoods = () => {
   // rangeExclusion(data);
   // dataEXclusion(data);
 
-  dataEXclusion(data);
+  dataExclusion(data);
   rangeExclusion(data);
 
   // очищаем блок на каждое действие и отрисовывем

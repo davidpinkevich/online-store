@@ -2,7 +2,7 @@ import { TGoodsData } from "../../types/types";
 import { filterStore } from "./data/filter-store";
 // import { addQueryString } from "./query/create-query-string";
 
-export const dataEXclusion = (data: TGoodsData[]): void => {
+export const dataExclusion = (data: TGoodsData[]): void => {
   const brandsCheckbox: NodeListOf<HTMLElement> = document.querySelectorAll(
     ".filter__brand .checkbox"
   );
