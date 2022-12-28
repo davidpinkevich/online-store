@@ -9,4 +9,5 @@ export const filterStore: TFilterStore = {
   maxPrice: 1749,
   search: "",
   sort: "",
+  big: "true",
 };
