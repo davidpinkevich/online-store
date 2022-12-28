@@ -104,8 +104,8 @@ router
     sortRating();
     sortPrice();
     sortStock();
-    filterGoods();
     activeFilters();
+    filterGoods();
     changeViewItems();
     changeView();
     addAmountItems();
