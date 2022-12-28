@@ -1,6 +1,8 @@
 import { filterStore } from "./data/filter-store";
+import { readQueryString } from "./query/read-query-string";
 
 export const activeFilters = (): void => {
+  readQueryString();
   const categoriesCheckbox: NodeListOf<HTMLInputElement> =
     document.querySelectorAll(".filter__category .checkbox__input");
   const brandsCheckbox: NodeListOf<HTMLInputElement> =
