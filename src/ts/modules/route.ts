@@ -18,6 +18,7 @@ import { changeViewItems } from "./change-view/ls-change-for-view";
 import { changeView } from "./change-view/change-view";
 import { filterGoods } from "./filter/filter-goods";
 import { activeFilters } from "./filter/active-filters";
+import { addAmountItems } from "./filter/amount/amount-items";
 
 const router = new Navigo("/", { hash: true });
 
@@ -84,6 +85,7 @@ router
                 <button class="search__btn-price">sort by price</button>
                 <button class="search__btn-stock">sort by stock</button>
             </div>
+            <p class="search__amount">Products found: <span>0</span></p>
             <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
             <div class="search__change">
                 <div class="search__change-one">1</div>
@@ -106,6 +108,7 @@ router
     activeFilters();
     changeViewItems();
     changeView();
+    addAmountItems();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
@@ -129,7 +132,7 @@ router
     changeMainPhoto();
   })
   .on("/cart/", () => {
-    createCart();
+    createCart("RS", "2022", 30, 20);
   })
   .notFound(() => {
     root.innerHTML = `

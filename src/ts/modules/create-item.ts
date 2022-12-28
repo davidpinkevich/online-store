@@ -160,7 +160,9 @@ class Product implements IItemClass {
       const fullPrice = <HTMLElement>(
         document.querySelector(".header__cost>span")
       );
-      const currItems = <HTMLElement>document.querySelector(".basket__basket");
+      const currItems = <HTMLElement>(
+        document.querySelector(".basket__basket-amount")
+      );
       totalPrice(fullPrice);
       addAllAmount(currItems);
     });
@@ -288,7 +290,9 @@ class Product implements IItemClass {
       const fullPrice = <HTMLElement>(
         document.querySelector(".header__cost>span")
       );
-      const currItems = <HTMLElement>document.querySelector(".basket__basket");
+      const currItems = <HTMLElement>(
+        document.querySelector(".basket__basket-amount")
+      );
       totalPrice(fullPrice);
       addAllAmount(currItems);
     });
