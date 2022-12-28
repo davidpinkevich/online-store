@@ -17,4 +17,9 @@ export const readQueryString = (): void => {
   filterStore.maxStock = +stocks[1];
   filterStore.search = params.search ? params.search : "";
   filterStore.sort = params.sort ? params.sort : "";
+  if (params.big) {
+    filterStore.big = params.big;
+  } else {
+    filterStore.big = "true";
+  }
 };
