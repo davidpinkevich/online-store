@@ -326,6 +326,11 @@
     box-shadow: inset 0px 0px 3px 3px black;
 }
 
+.search__change-one_active,
+.search__change-two_active {
+    box-shadow: inset 0px 0px 3px 3px white
+}
+
 .search__amount {
   text-shadow: 2px 2px 2px black;
   font-size: $secondSize;
