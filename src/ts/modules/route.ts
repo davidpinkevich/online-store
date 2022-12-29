@@ -74,8 +74,8 @@ router
         </div>
         </section>
         <div class="filter__buttons button">
-            <button class = "button__reset">Reset Filtres</button>
-            <button class = "button__copy">Copy Link</button>
+            <button class = "button__reset">Reset</button>
+            <button class = "button__copy">Copy</button>
         </div>
     </div>
     <div class="main__items">

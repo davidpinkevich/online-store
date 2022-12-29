@@ -51,8 +51,12 @@
     }
 }
 
-.button__add {
+.button__add,
+.button__buy {
     transition: all 0.3s;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .button__add.active {
@@ -152,5 +156,29 @@
 
     & span {
       margin-left: 5px;
+    }
+}
+
+.filter__buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button__reset,
+.button__copy {
+    width: 110px;
+    padding: 10px;
+    border-radius: 8px;
+    color: $mainColor;
+    background-color: $secondColor;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.05);
+        background-color: #8e600a;
     }
 }

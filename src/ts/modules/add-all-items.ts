@@ -24,8 +24,8 @@ export function createAllItems(items: TGoodsData[]): void {
   changeView();
 
   // добавляем в ls инфу о внешнем виде всех блоков
-  if (!localStorage.getItem("view-items")) {
-    localStorage.setItem("view-items", "one");
+  if (!localStorage.getItem("cart-storage")) {
+    localStorage.setItem("cart-storage", "[]");
   }
 }
 
