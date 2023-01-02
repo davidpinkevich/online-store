@@ -50,3 +50,8 @@ export type TFilterStore = {
 };
 
 export type TCompose = (data: TGoodsData[]) => TGoodsData[];
+
+export interface IQueryCart {
+  limit: number;
+  page: number;
+}

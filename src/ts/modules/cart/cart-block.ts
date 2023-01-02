@@ -4,6 +4,9 @@ import { ICartItems } from "../../types/types";
 import { totalPrice } from "./total-cost";
 import { addAllAmount } from "./total-amount";
 import { addEventInput } from "./event-input";
+import { queryCart } from "./data/cart-store";
+import { inputPage } from "./input-pag";
+import { addNumberPage } from "./page-number";
 
 export function createCart(
   fPromo: string,
@@ -25,10 +28,38 @@ export function createCart(
     products.classList.add("products");
     productsBody.append(products);
     // название блока
-    const productsTitle = document.createElement("h2");
+    const productsTitle = document.createElement("div");
     productsTitle.classList.add("products__title");
-    productsTitle.innerHTML = "Items in the cart";
+
+    const productsTitleText = document.createElement("h2");
+    productsTitleText.innerHTML = "Items in the cart";
+    productsTitle.append(productsTitleText);
+
+    const productsTitlePug = document.createElement("div");
+    productsTitlePug.classList.add("products__pug");
+    productsTitle.append(productsTitlePug);
+
+    const productsTitleInput = document.createElement("input");
+    productsTitleInput.type = "number";
+    productsTitleInput.classList.add("products__pug-input");
+    productsTitlePug.append(productsTitleInput);
+    productsTitleInput.addEventListener("input", function () {
+      inputPage(queryCart);
+    });
+    productsTitleInput.value = String(queryCart.limit);
+
+    const productsTitlePages = document.createElement("div");
+    productsTitlePages.classList.add("products__pug-pages");
+    productsTitlePages.innerHTML = `<div class="page-left"><span>L</span></div><span></span><div class="page-right"><span>R</span></div>`;
+    productsTitlePug.append(productsTitlePages);
+
     products.append(productsTitle);
+    addNumberPage(queryCart);
+
+    const numberPage = <HTMLElement>(
+      document.querySelector(".products__pug-pages>span")
+    );
+    numberPage.innerHTML = `${queryCart.page}`;
     // список добавленных товаров
     const productsItems = document.createElement("div");
     productsItems.classList.add("products__items");
@@ -105,19 +136,33 @@ export function createCart(
     );
     currItemsBlock.style.pointerEvents = "none";
     addAllAmount(currItems);
+
+    // проверка на пагинацию
     // вставка блочков с item
     if (storage.length > 0) {
       const arrNumbers: number[] = [];
       storage.forEach((item: ICartItems) => {
         arrNumbers.push(item.id);
       });
-      arrNumbers.forEach((item: number) => {
-        for (let i = 0; i < goodsData.length; i += 1) {
-          if (item === goodsData[i].id) {
-            cartItem(goodsData[i]);
+      // arrNumbers - это массив с номерами id
+      if (queryCart.page === 1) {
+        for (let i = 0; i < +queryCart.limit; i++) {
+          for (let j = 0; j < goodsData.length; j += 1) {
+            if (arrNumbers[i] === goodsData[j].id) {
+              cartItem(goodsData[j]);
+            }
           }
         }
-      });
+      } else {
+        const test = queryCart.page * queryCart.limit;
+        for (let i = test - queryCart.limit; i < +test; i++) {
+          for (let j = 0; j < goodsData.length; j += 1) {
+            if (arrNumbers[i] === goodsData[j].id) {
+              cartItem(goodsData[j]);
+            }
+          }
+        }
+      }
     }
   } else {
     const productsBody = document.createElement("div");
