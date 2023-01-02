@@ -26,6 +26,9 @@
         font-size: $mainSize;
         box-shadow: inset 0px 0px 3px 3px black;
         border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
     }
 
     &__items {
@@ -133,5 +136,62 @@
     &:hover {
         transform: scale(1.03);
         box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+}
+
+.products__pug {
+    display: flex;
+    gap: 20px;
+}
+
+.products__pug-input {
+    height: 30px;
+    width: 38px;
+    padding-left: 7px;
+    font-size: 26px;
+    color: $secondColor;
+    background-color: inherit;
+    border-radius: 8px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.2s;
+
+    &:focus {
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+        color: $mainColor;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+}
+
+.products__pug-pages {
+    display: flex;
+    gap: 5px;
+}
+.page-left,
+.page-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.2s;
+    cursor: pointer;
+    transition: all 0.2s;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    &:hover {
+        transform: scale(1.11);
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+    &:active {
+      box-shadow: inset 0px 0px 3px 3px $secondColor;
     }
 }
