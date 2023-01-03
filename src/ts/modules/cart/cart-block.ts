@@ -8,6 +8,7 @@ import { queryCart } from "./data/cart-store";
 import { inputPage } from "./input-pag";
 import { addNumberPage } from "./page-number";
 import { readQueryStringCart } from "./query/read-query-cart";
+import { createModalWindow } from "../modal-window/add-window";
 
 export function createCart(
   fPromo: string,
@@ -116,6 +117,15 @@ export function createCart(
     inputPromo.type = "text";
     inputPromo.placeholder = "Enter promocode (RS, 2022)";
     costBody.append(inputPromo);
+    // вставка кнопки для покупки
+    const btnBuy = document.createElement("button");
+    btnBuy.classList.add("cost__body-buy");
+    btnBuy.innerHTML = "BUY";
+    costBody.append(btnBuy);
+    btnBuy.addEventListener("click", function () {
+      createModalWindow();
+      document.body.classList.add("shadow");
+    });
     // добавляе в ls промы
     const lsPromo = localStorage.getItem("promo");
     const objPromo = {
