@@ -7,6 +7,7 @@ import { addEventInput } from "./event-input";
 import { queryCart } from "./data/cart-store";
 import { inputPage } from "./input-pag";
 import { addNumberPage } from "./page-number";
+import { readQueryStringCart } from "./query/read-query-cart";
 
 export function createCart(
   fPromo: string,
@@ -17,6 +18,7 @@ export function createCart(
   const main = <HTMLElement>document.getElementById("root");
   const storage = JSON.parse(localStorage.getItem("cart-storage") || "");
   main.innerHTML = "";
+  readQueryStringCart();
   if (storage.length > 0) {
     // общий блок
     const productsBody = document.createElement("div");
