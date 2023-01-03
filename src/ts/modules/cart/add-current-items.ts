@@ -4,6 +4,10 @@ import { itemCost } from "./item-cost";
 import { totalPrice } from "./total-cost";
 import { addAllAmount } from "./total-amount";
 import { totalDiscountPrice } from "./total-discount";
+import { addNumberPage } from "./page-number";
+import { queryCart } from "./data/cart-store";
+import { readQueryString } from "../filter/query/read-query-string";
+import { addQueryForCart } from "./query/create-query-cart";
 
 function addItemCurrent(
   event: Event,
@@ -14,6 +18,17 @@ function addItemCurrent(
 ) {
   const lsCart = JSON.parse(localStorage.getItem("cart-storage") || "");
   const lsPromo = JSON.parse(localStorage.getItem("promo") || "");
+  // проверка на наличие на странице item, чтобы пагинация сдвинулась влево
+  const lengthItems = lsCart.length;
+  const numberItem = <HTMLElement>(
+    document.querySelector(".cart-item__buttons-info-current > span")
+  );
+  const numberItems: NodeListOf<HTMLElement> = document.querySelectorAll(
+    ".cart-item__buttons-info-current > span"
+  );
+  const lenItems = Array.from(numberItems).length;
+  //-----------------------------------------------
+
   const discCost = <HTMLElement>(
     document.querySelector(".total__promo .cost__body-price-amount")
   );
@@ -84,6 +99,7 @@ function addItemCurrent(
     addAllAmount(currItems);
     totalPrice(mainCostRight);
     addAllAmount(mainCurrentRight);
+    addNumberPage(queryCart);
     totalDiscountPrice(
       discCost,
       firstPromo,
@@ -94,14 +110,28 @@ function addItemCurrent(
     if (lsPromo[firstPromo] === false && lsPromo[secondPromo] === false) {
       oldPrice.style.textDecoration = "none";
     }
+
+    if (
+      lengthItems >= 1 &&
+      queryCart.page > 1 &&
+      Number(numberItem.innerHTML) <= 1 &&
+      lenItems <= 1
+    ) {
+      queryCart.page -= 1;
+      addQueryForCart("page", String(queryCart.page));
+      readQueryString();
+      createCart("RS", "2022", 30, 20);
+    }
   }
   lsCart.forEach((item: ICartItems) => {
     if (item.count > 0) {
       secondLs.push(item);
     }
   });
+  addNumberPage(queryCart);
   localStorage.setItem("cart-storage", JSON.stringify(secondLs));
   if (secondLs.length !== newLs.length) createCart("RS", "2022", 30, 20);
+  createCart("RS", "2022", 30, 20);
   //------------------------------------------------------
 }
 

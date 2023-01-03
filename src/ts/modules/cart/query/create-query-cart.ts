@@ -7,6 +7,9 @@ export function addQueryForCart(key: string, value: string): void {
   } else {
     search.set(key, value);
   }
-  const newPath = `${window.location.pathname}?${search.toString()}`;
+  const newPath = `${window.location.pathname}?${search.toString()}${
+    window.location.hash
+  }`;
+  history.pushState(null, "", newPath);
   history.pushState(null, "", newPath);
 }
