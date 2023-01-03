@@ -19,6 +19,8 @@ import { changeView } from "./change-view/change-view";
 import { filterGoods } from "./filter/filter-goods";
 import { activeFilters } from "./filter/active-filters";
 import { addAmountItems } from "./filter/amount/amount-items";
+import { copyURL } from "./filter/controls/copy";
+import { resetQuery } from "./filter/controls/reset";
 
 const router = new Navigo("/", { hash: true });
 
@@ -109,6 +111,8 @@ router
     changeViewItems();
     changeView();
     addAmountItems();
+    copyURL();
+    resetQuery();
   })
   .on("/good/:id", (q) => {
     const id: TIdCheck = q?.data?.id;
