@@ -18,7 +18,6 @@ export function rangeExclusion(data: TGoodsData[]): void {
 
   const rangeStockMin = <HTMLInputElement>document.getElementById("stockMin");
   const rangeStockMax = <HTMLInputElement>document.getElementById("stockMax");
-  console.log(isFinite(stockMin), typeof stockMin);
 
   const arrowStock = <HTMLElement>(
     document.querySelector(".filter__stock-arrow")
