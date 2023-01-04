@@ -2,9 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 10px;
     gap: 15px;
     text-shadow: 2px 2px 2px black;
+    box-shadow: inset 0px 0px 3px 3px black;
     color: $mainColor;
     font-size: $mainSize;
     a {
