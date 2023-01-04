@@ -31,8 +31,21 @@
 .modal__body {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 10px;
+}
+
+.modal__body-name_error,
+.modal__body-phone_error,
+.modal__body-address_error,
+.modal__body-email_error,
+.modal__card-number_error,
+.modal__card-footer-field_error,
+.modal__card-footer-cvv_error,
+.modal__error {
+    margin: 0;
+    color: red;
+    font-size: 14px;
 }
 
 .modal__title,
