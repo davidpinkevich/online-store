@@ -1,6 +1,6 @@
 .good {
     text-shadow: 2px 2px 2px black;
-    min-height: 75vh;
+    min-height: 45vh;
     padding-top: 10px;
 
     &__navigation {
@@ -19,6 +19,7 @@
         text-decoration: none;
         border-radius: 12px;
         box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
         padding: 10px 60px;
         & a {
             color: $secondColor;
@@ -34,6 +35,7 @@
         color: $secondColor;
         border-radius: 12px;
         box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
         padding: 10px 60px;
     }
 
@@ -41,6 +43,7 @@
         color: $secondColor;
         border-radius: 12px;
         box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
         padding: 10px 60px;
     }
 
@@ -48,6 +51,7 @@
         color: $secondColor;
         border-radius: 12px;
         box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
         padding: 10px 60px;
     }
 
@@ -55,11 +59,12 @@
         color: $mainColor;
         border-radius: 12px;
         box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
         padding: 10px 20px;
     }
 
     &-item {
-        min-height: 450px;
+        // min-height: 450px;
         margin-top: 25px;
         border-radius: 12px;
 
@@ -68,16 +73,18 @@
             font-size: $mainSize;
             text-align: center;
             color: $secondColor;
-            box-shadow: inset 0px 0px 3px 3px black;
             border-radius: 12px;
             margin-bottom: 10px;
+            box-shadow: inset 0px 0px 3px 3px black;
+            background-color: inherit;
         }
 
         &__content {
             display: flex;
-            min-height: 450px;
+            padding: 20px;
             border-radius: 12px;
             box-shadow: inset 0px 0px 3px 3px black;
+            background-color: inherit;
         }
 
         &__photos {
@@ -139,10 +146,11 @@
             justify-content: space-between;
             gap: 10px;
             align-items: center;
-            padding: 10px 25px;
+            padding: 5px 25px;
             width: 500px;
-            height: 60px;
+            // height: 60px;
             box-shadow: inset 0px 0px 3px 3px black;
+            background-color: rgb(32, 29, 29);
             border-radius: 12px;
             color: $mainColor;
             font-size: 24px;
