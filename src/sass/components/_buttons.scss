@@ -77,7 +77,9 @@
     color: $mainColor;
     box-shadow: inset 0px 0px 3px 3px black;
     text-shadow: 2px 2px 2px black;
-    transition: all 0.2s;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+    transition-property: transform;
 
     &:hover {
         transform: scale(1.05);
