@@ -5,6 +5,7 @@ import { checkNumber } from "./checks/check-number";
 import { checkAddress } from "./checks/phone-number";
 import { checkMail } from "./checks/mail";
 import { checkCardNumber } from "./checks/card-number";
+import { activateBtn } from "./checks/confirm";
 
 export function createModalWindow(): void {
   const mod = document.createElement("div");
@@ -13,9 +14,13 @@ export function createModalWindow(): void {
       <h2 class="modal__title">Personal data</h2>
       <div class="modal__body">
         <input type="text" class="modal__body-name" placeholder="Full name" required>
+        <div class="modal__body-name_error"></div>
         <input type="tel" class="modal__body-phone" placeholder="Phone number" required>
+        <div class="modal__body-phone_error"></div>
         <input type="text" class="modal__body-address" placeholder="Delivery address" required>
+        <div class="modal__body-address_error"></div>
         <input type="email" class="modal__body-email" placeholder="E-mail" required>
+        <div class="modal__body-email_error"></div>
       </div>
       <h2 class="modal__title-card">Credit card</h2>
       <div class="modal__card gold">
@@ -31,7 +36,11 @@ export function createModalWindow(): void {
           <input type="number" class="modal__card-footer-cvv" placeholder="cvv" required>
         </div>
       </div>
+      <div class="modal__card-number_error"></div>
+      <div class="modal__card-footer-field_error"></div>
+      <div class="modal__card-footer-cvv_error"></div>
       <button class="modal__btn">CONFIRM</button>
+      <div class="modal__error"></div>
       </form>`;
   document.body.after(mod);
   checkName();
@@ -41,4 +50,5 @@ export function createModalWindow(): void {
   checkAddress();
   checkMail();
   checkCardNumber();
+  activateBtn();
 }
