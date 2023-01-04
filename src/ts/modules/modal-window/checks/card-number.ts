@@ -16,6 +16,10 @@ export function checkCardNumber(): void {
     document.querySelector(".modal__card-number-four")
   );
 
+  const error = <HTMLDivElement>(
+    document.querySelector(".modal__card-number_error")
+  );
+
   one.addEventListener("input", function () {
     const text = one.value.slice(0, 4);
     if (one.value.length >= 4) {
@@ -65,36 +69,44 @@ export function checkCardNumber(): void {
   one.addEventListener("change", function () {
     if (one.value.length === 4) {
       one.classList.add("successfully");
+      error.innerHTML = "";
     } else {
       one.classList.remove("successfully");
       one.classList.add("fail");
+      error.innerHTML = "Card number is incorrect";
     }
   });
 
   two.addEventListener("change", function () {
     if (two.value.length === 4) {
       two.classList.add("successfully");
+      error.innerHTML = "";
     } else {
       two.classList.remove("successfully");
       two.classList.add("fail");
+      error.innerHTML = "Card number is incorrect";
     }
   });
 
   three.addEventListener("change", function () {
     if (three.value.length === 4) {
       three.classList.add("successfully");
+      error.innerHTML = "";
     } else {
       three.classList.remove("successfully");
       three.classList.add("fail");
+      error.innerHTML = "Card number is incorrect";
     }
   });
 
   four.addEventListener("change", function () {
     if (four.value.length === 4) {
       four.classList.add("successfully");
+      error.innerHTML = "";
     } else {
       four.classList.remove("successfully");
       four.classList.add("fail");
+      error.innerHTML = "Card number is incorrect";
     }
   });
 }
