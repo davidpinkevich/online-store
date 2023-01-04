@@ -2,6 +2,7 @@
 .products__body {
     text-shadow: 2px 2px 2px black;
     display: flex;
+    justify-content: center;
     gap: 15px;
     width: 100%;
     margin-top: 20px;
@@ -9,7 +10,7 @@
 }
 
 .products__body-empty {
-    min-height: 72vh;
+    min-height: 68vh;
     justify-content: center;
     color: $secondColor;
     font-size: $mainSize;

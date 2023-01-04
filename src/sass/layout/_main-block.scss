@@ -314,7 +314,7 @@
 
 .search__change {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 .search__change-one,
@@ -328,11 +328,17 @@
     border-radius: 10px;
     cursor: pointer;
     box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .search__change-one_active,
 .search__change-two_active {
-    box-shadow: inset 0px 0px 3px 3px white
+    box-shadow: inset 0px 0px 3px 3px white;
+    transform: scale(1.1);
 }
 
 .search__amount {

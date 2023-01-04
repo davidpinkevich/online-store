@@ -5,6 +5,7 @@ import { checkNumber } from "./checks/check-number";
 import { checkAddress } from "./checks/phone-number";
 import { checkMail } from "./checks/mail";
 import { checkCardNumber } from "./checks/card-number";
+import { confirmForm } from "./confirm-btn";
 
 export function createModalWindow(): void {
   const mod = document.createElement("div");
@@ -41,4 +42,15 @@ export function createModalWindow(): void {
   checkAddress();
   checkMail();
   checkCardNumber();
+  const shadow = <HTMLElement>document.querySelector("body");
+  const btn = <HTMLElement>document.querySelector(".cost__body-buy");
+  shadow.addEventListener("click", function (event) {
+    if (event.target !== mod && event.target !== btn) {
+      mod.remove();
+      shadow.classList.remove("shadow");
+    }
+  });
+
+  const btnConfirm = <HTMLButtonElement>document.querySelector(".modal__btn");
+  btnConfirm.addEventListener("click", confirmForm);
 }
