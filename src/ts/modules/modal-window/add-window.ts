@@ -1,3 +1,7 @@
+import { checkCvv } from "./checks/check-cvv";
+import { checkDate } from "./checks/check-date";
+import { checkName } from "./checks/check-name";
+import { checkNumber } from "./checks/check-number";
 import { checkAddress } from "./checks/phone-number";
 import { checkMail } from "./checks/mail";
 import { checkCardNumber } from "./checks/card-number";
@@ -9,7 +13,7 @@ export function createModalWindow(): void {
       <h2 class="modal__title">Personal data</h2>
       <div class="modal__body">
         <input type="text" class="modal__body-name" placeholder="Full name" required>
-        <input type="number" class="modal__body-phone" placeholder="Phone number" required>
+        <input type="tel" class="modal__body-phone" placeholder="Phone number" required>
         <input type="text" class="modal__body-address" placeholder="Delivery address" required>
         <input type="email" class="modal__body-email" placeholder="E-mail" required>
       </div>
@@ -22,13 +26,18 @@ export function createModalWindow(): void {
           <input type="number" class="modal__card-number-four" required>
         </div>
         <div class="modal__card-footer">
-          <input type="number" class="modal__card-footer-valid" placeholder="Date" required>
+          <input type="number" min="1" max="12" class="modal__card-footer-month" placeholder="Month" required>
+          <input type="number" class="modal__card-footer-year" placeholder="Year" required>
           <input type="number" class="modal__card-footer-cvv" placeholder="cvv" required>
         </div>
       </div>
       <button class="modal__btn">CONFIRM</button>
       </form>`;
   document.body.after(mod);
+  checkName();
+  checkNumber();
+  checkDate();
+  checkCvv();
   checkAddress();
   checkMail();
   checkCardNumber();
