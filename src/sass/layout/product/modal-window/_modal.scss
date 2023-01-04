@@ -180,12 +180,12 @@
 }
 
 .fail {
-  box-shadow: inset 0px 0px 3px 3px red;
-  color: red;
+    box-shadow: inset 0px 0px 3px 3px red;
+    color: red;
 }
 .successfully {
-  box-shadow: inset 0px 0px 3px 3px $secondColor;
-  color: $secondColor;
+    box-shadow: inset 0px 0px 3px 3px $secondColor;
+    color: $secondColor;
 }
 
 .visa {
@@ -196,22 +196,28 @@
 }
 
 .ms {
-  border-radius: 12px;
-  background: url("../images/ms.png") no-repeat;
-  background-position: center;
-  background-size: cover;
+    border-radius: 12px;
+    background: url("../images/ms.png") no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .ae {
-  border-radius: 12px;
-  background: url("../images/ae.png") no-repeat;
-  background-position: center;
-  background-size: cover;
+    border-radius: 12px;
+    background: url("../images/ae.png") no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .gold {
-  border-radius: 12px;
-  background: url("../images/gold.jpg") no-repeat;
-  background-position: center;
-  background-size: cover;
+    border-radius: 12px;
+    background: url("../images/gold.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.mod__info {
+    font-size: 30px;
+    color: $secondColor;
+    text-align: center;
 }
