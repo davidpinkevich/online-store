@@ -1,8 +1,8 @@
+import { confirmForm } from "../confirm-btn";
 import { checkAllInputs } from "./check-all-inputs";
 
 export const activateBtn = () => {
   const confirmBtn = document.querySelector(".modal__btn") as HTMLButtonElement;
-  const modalError = document.querySelector(".modal__error") as HTMLDivElement;
 
   confirmBtn.addEventListener("click", (e) => {
     const successfullyEl: NodeListOf<HTMLInputElement> =
@@ -11,10 +11,9 @@ export const activateBtn = () => {
     console.log(successfullyEl.length);
     if (successfullyEl.length === 11) {
       e.preventDefault();
-      modalError.innerHTML = "";
+      confirmForm(e);
     } else {
       checkAllInputs();
-      modalError.innerHTML = "Invalid data";
     }
   });
 };
