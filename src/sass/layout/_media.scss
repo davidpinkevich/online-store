@@ -1,0 +1,111 @@
+@media (max-width: 1199px) {
+    .good {
+
+        &__navigation {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        &-item {
+
+            &__content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &__descr {
+                margin-top: 20px;
+            }
+
+            &__control {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .good {
+
+        &__navigation {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-item {
+
+            &__content {
+                width: 290px;
+                margin: 0 auto;
+            }
+
+            &__photos {
+                width: 320px;
+            }
+
+            &__photo {
+                width: 260px;
+
+                &-small {
+
+                    &:last-child {
+                        margin-top: 10px;
+                    }
+                }
+            }
+
+            &__descr {
+                width: 260px;
+            }
+
+            &__name {
+                width: 260px;
+                font-size: 16px;
+
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .modal {
+        width: 320px;
+        left: calc(50% - 320px / 2);
+
+        &__body-name,
+        &__body-phone,
+        &__body-address,
+        &__body-email,
+        &__card-footer-month,
+        &__card-footer-year,
+        &__card-footer-cvv {
+            font-size: 14px;
+        }
+
+        .modal__card-number-one,
+        .modal__card-number-two,
+        .modal__card-number-three,
+        .modal__card-number-four {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .modal__body-name_error,
+        .modal__body-phone_error,
+        .modal__body-address_error,
+        .modal__body-email_error,
+        .modal__card-number_error,
+        .modal__card-footer-field_error,
+        .modal__card-footer-cvv_error,
+        .modal__error {
+            margin: 0;
+            color: red;
+            font-size: 12px;
+        }
+
+        &__btn {
+            font-size: 14px;
+        }
+    }
+}
