@@ -112,6 +112,10 @@
     background-color: $secondColor;
     color: $mainColor;
     transition: all 0.2s;
+
+    @media (max-width: 400px){
+        padding: 5px;
+    }
     &:hover {
       transform: scale(1.05);
       background-color: #8e600a;
@@ -219,6 +223,10 @@
     text-shadow: 2px 2px 2px black;
     box-shadow: inset 0px 0px 3px 3px black;
     transition: all 0.2s;
+
+    @media (max-width:$md2){
+        @include adaptiv-320(font-size, 30, 18);
+    }
 
     &:hover {
         transform: scale(1.05);
