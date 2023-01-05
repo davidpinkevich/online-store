@@ -11,6 +11,10 @@
     text-shadow: 2px 2px 2px black;
     border-radius: 8px;
     background-color: rgb(47, 46, 46);
+
+    @media (max-width: 550px){
+          flex-direction: column;
+    }
     a {
         color: $mainColor;
     }

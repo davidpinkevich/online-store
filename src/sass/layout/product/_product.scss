@@ -7,12 +7,18 @@
   font-size: 16px;
   border-radius: 12px;
   padding: 10px;
-  width: 260px;
+  width: 100%;
   height: 260px;
   box-shadow: 0px 0px 3px 3px black;
   text-shadow: 2px 2px 2px black;
   transition-duration: 0.2s;
   transition-property: transform;
+
+  @media (max-width:1200px){
+      // @include adaptiv-320(width, 260, 100);
+      width: 100%;
+  }
+
   &:hover {
     box-shadow: 0px 0px 3px 3px white;
     transform: scale(1.03);
@@ -47,7 +53,7 @@
 }
 
 .product.active {
-    width: 200px;
+    width: 100%;
     height: 160px;
     padding: 5px;
     & .description__block {
@@ -78,6 +84,9 @@
 .product__main {
   display: flex;
   gap: 5px;
+  @media (max-width:1250px){
+    flex-direction: column;
+  }
 }
 
 .description__block {
@@ -86,6 +95,7 @@
   text-shadow: 2px 2px 2px black;
   padding: 10px;
   border-radius: 10px;
+
   & > *:not(:last-child) {
     margin-bottom: 5px;
   }
@@ -108,4 +118,15 @@
   gap: 10px;
   flex-direction: column;
   justify-content: flex-end;
+
+  @media (max-width:1100px){
+    gap: 3px;
+  }
+}
+
+.description__block-price,
+.description__block-discount {
+  @media (max-width:1250px){
+    display: none;
+  }
 }

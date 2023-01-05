@@ -68,6 +68,7 @@
 .button__body-add {
     text-transform: uppercase;
     display: flex;
+    width: 100%;
     border-radius: 8px;
     font-size: 14px;
     justify-content: center;
@@ -77,7 +78,14 @@
     color: $mainColor;
     box-shadow: inset 0px 0px 3px 3px black;
     text-shadow: 2px 2px 2px black;
-    transition: all 0.2s;
+    transition-duration: 0.2s;
+    transition-property: background-color;
+    transition-property: transform;
+
+    @media (max-width:1100px){
+        @include adaptiv-320(font-size, 14, 10);
+        padding: 5px;
+    }
 
     &:hover {
         transform: scale(1.05);
@@ -104,6 +112,10 @@
     background-color: $secondColor;
     color: $mainColor;
     transition: all 0.2s;
+
+    @media (max-width: 400px){
+        padding: 5px;
+    }
     &:hover {
       transform: scale(1.05);
       background-color: #8e600a;
@@ -114,7 +126,12 @@
 
 .search__btn {
     display: flex;
+    justify-content: center;
     gap: 10px;
+
+  //   @media (max-width: 1100px){
+  //     flex-direction: column;
+  // }
 }
 
 .search__btn-rating,
@@ -130,6 +147,10 @@
     border-radius: 8px;
     padding: 10px;
     transition: all 0.3s;
+
+    @media (max-width: 1100px){
+      padding: 5px;
+    }
     &:hover {
         transform: scale(1.05);
     }
@@ -202,6 +223,10 @@
     text-shadow: 2px 2px 2px black;
     box-shadow: inset 0px 0px 3px 3px black;
     transition: all 0.2s;
+
+    @media (max-width:$md2){
+        @include adaptiv-320(font-size, 30, 18);
+    }
 
     &:hover {
         transform: scale(1.05);

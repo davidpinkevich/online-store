@@ -1847,7 +1847,7 @@ export const goodsData: TGoodsData[] = [
     discountPercentage: 14.89,
     rating: 4.83,
     stock: 96,
-    brand: "lightingbrilliance",
+    brand: "lighting brilliance",
     category: "lighting",
     thumbnail: "https://i.dummyjson.com/data/products/96/thumbnail.jpg",
     images: [
