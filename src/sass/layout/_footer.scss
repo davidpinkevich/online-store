@@ -10,6 +10,10 @@
     box-shadow: inset 0px 0px 3px 3px black;
     color: $mainColor;
     font-size: $mainSize;
+
+    @media (max-width:$md2){
+      @include adaptiv-320(gap, 15, 5);
+    }
     a {
         color: $mainColor;
     }
@@ -20,6 +24,11 @@
     width: 200px;
     height: 80px;
     transition: all 0.2s;
+
+    @media (max-width:$md2){
+        @include adaptiv-320(width, 200, 80);
+        @include adaptiv-320(height, 80, 35);
+    }
     & img {
         position: absolute;
         top: 0;
@@ -37,6 +46,14 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media (max-width:$md2){
+      @include adaptiv-320(gap, 20, 5);
+    }
+
+    @media (max-width: 400px){
+        gap: 10px;
+    }
 }
 .footer__links-git {
     position: relative;
@@ -44,6 +61,16 @@
     height: 40px;
     border-radius: 50%;
     box-shadow: 0px 0px 2px 2px $mainColor;
+
+    @media (max-width:$md2){
+        @include adaptiv-320(width, 40, 20);
+        @include adaptiv-320(height, 40, 20);
+    }
+
+    @media (max-width: 400px){
+        width: 30px;
+        height: 30px;
+  }
     & img {
         position: absolute;
         top: 0;
@@ -61,7 +88,30 @@
     gap: 10px;
     transition: all 0.2s;
 
+    @media (max-width:$md2){
+        @include adaptiv-320(gap, 10, 3);
+    }
+
     &:hover {
         transform: scale(1.15);
+    }
+}
+
+.footer__links-name {
+    font-size: 30px;
+    @media (max-width: 400px){
+        display: none;
+    }
+
+    @media (max-width:$md2){
+        @include adaptiv-320(font-size, 30, 18);
+    }
+}
+
+.footer__date {
+    font-size: 30px;
+
+    @media (max-width:$md2){
+      @include adaptiv-320(font-size, 30, 18);
     }
 }
