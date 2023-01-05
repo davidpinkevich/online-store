@@ -1,9 +1,10 @@
 .shadow {
-    position: relative;
+    position: fixed;
+    height: 100%;
     &::after {
         content: "";
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
         height: 100%;
         width: 100%;
@@ -14,7 +15,7 @@
 }
 
 .modal {
-    position: fixed;
+    position: absolute;
     text-align: center;
     z-index: 10;
     top: 10%;

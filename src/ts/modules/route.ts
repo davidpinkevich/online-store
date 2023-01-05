@@ -90,8 +90,8 @@ router
             <p class="search__amount">Products found: <span>0</span></p>
             <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
             <div class="search__change">
-                <div class="search__change-one">1</div>
-                <div class="search__change-two">2</div>
+                <div class="search__change-one">B</div>
+                <div class="search__change-two">S</div>
             </div>
         </div>
         <div class="main__items-body"></div>
