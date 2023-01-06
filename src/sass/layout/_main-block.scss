@@ -370,30 +370,25 @@
     align-items: center;
     width: 50px;
     height: 50px;
-    border-radius: 10px;
     cursor: pointer;
-    box-shadow: inset 0px 0px 3px 3px black;
     transition: all 0.2s;
-
-    & img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        filter: invert(100%);
-    }
 
     &:hover {
         transform: scale(1.05);
     }
 }
 
+.search__change-one {
+    background: url("../icons/big.svg") center center/cover no-repeat;
+}
+.search__change-two {
+    background: url("../icons/small.svg") center center/cover no-repeat;
+}
+
 .search__change-one_active,
 .search__change-two_active {
-    box-shadow: inset 0px 0px 3px 3px white;
-    transform: scale(1.1);
+    transform: scale(1.15);
+    filter: invert(100%);
 }
 
 .search__amount {
