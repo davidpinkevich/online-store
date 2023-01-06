@@ -2,7 +2,7 @@ import { checkCvv } from "./checks/check-cvv";
 import { checkDate } from "./checks/check-date";
 import { checkName } from "./checks/check-name";
 import { checkNumber } from "./checks/check-number";
-import { checkAddress } from "./checks/phone-number";
+import { checkAddress } from "./checks/check-address";
 import { checkMail } from "./checks/mail";
 import { checkCardNumber } from "./checks/card-number";
 import { activateBtn } from "./checks/confirm";
