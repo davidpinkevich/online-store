@@ -14,7 +14,6 @@ export const goodsData: TGoodsData[] = [
     thumbnail: "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
     images: [
       "https://i.dummyjson.com/data/products/1/1.jpg",
-      "https://i.dummyjson.com/data/products/1/2.jpg",
       "https://i.dummyjson.com/data/products/1/3.jpg",
       "https://i.dummyjson.com/data/products/1/4.jpg",
       "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
@@ -186,9 +185,8 @@ export const goodsData: TGoodsData[] = [
     thumbnail: "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
     images: [
       "https://i.dummyjson.com/data/products/10/1.jpg",
-      "https://i.dummyjson.com/data/products/10/2.jpg",
-      "https://i.dummyjson.com/data/products/10/3.jpg",
       "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+      "https://i.dummyjson.com/data/products/10/3.jpg",
     ],
   },
   {
@@ -1081,7 +1079,6 @@ export const goodsData: TGoodsData[] = [
     images: [
       "https://i.dummyjson.com/data/products/56/1.jpg",
       "https://i.dummyjson.com/data/products/56/2.jpg",
-      "https://i.dummyjson.com/data/products/56/3.jpg",
       "https://i.dummyjson.com/data/products/56/4.jpg",
       "https://i.dummyjson.com/data/products/56/5.jpg",
       "https://i.dummyjson.com/data/products/56/thumbnail.jpg",
@@ -1313,7 +1310,7 @@ export const goodsData: TGoodsData[] = [
     images: [
       "https://i.dummyjson.com/data/products/68/1.jpg",
       "https://i.dummyjson.com/data/products/68/2.jpg",
-      "https://static-01.daraz.pk/p/ba46601aab93c8d9c530bad07a1c04ee.jpg",
+      "https://ss7.vzw.com/is/image/VerizonWireless/apple-watch-series-7-lte-41mm-midnight-aluminum-midnight-sport-band-mkh73ll-a-sku4790160",
     ],
   },
   {
@@ -1351,7 +1348,7 @@ export const goodsData: TGoodsData[] = [
     images: [
       "https://i.dummyjson.com/data/products/70/1.jpg",
       "https://i.dummyjson.com/data/products/70/2.jpg",
-      "https://i.dummyjson.com/data/products/70/thumbnail.jpg",
+      "https://citizenwatch.widen.net/content/dsutaeugik/jpeg/Classic.jpeg?u=41zuoe&width=500&height=625&quality=80&crop=false&keep=c&color=F9F8F6",
     ],
   },
   {
@@ -1715,7 +1712,6 @@ export const goodsData: TGoodsData[] = [
     images: [
       "https://i.dummyjson.com/data/products/89/1.jpg",
       "https://i.dummyjson.com/data/products/89/2.jpg",
-      "https://i.dummyjson.com/data/products/89/3.jpg",
       "https://i.dummyjson.com/data/products/89/4.jpg",
       "https://i.dummyjson.com/data/products/89/thumbnail.jpg",
     ],
