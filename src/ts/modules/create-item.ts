@@ -3,6 +3,7 @@ import { IItemClass } from "../types/types";
 import { ICartItems } from "../types/types";
 import { totalPrice } from "./cart/total-cost";
 import { addAllAmount } from "./cart/total-amount";
+// import { createModalWindow } from "./modal-window/add-window";
 
 class Product implements IItemClass {
   public _id: number;
@@ -236,6 +237,7 @@ class Product implements IItemClass {
     const secondBtn = <HTMLButtonElement>(
       document.querySelector(".button.button__add")
     );
+    const btnBuy = <HTMLButtonElement>document.querySelector(".button__buy");
     const lsCartMain = localStorage.getItem("cart-storage");
     if (lsCartMain && JSON.parse(lsCartMain || "").length > 0) {
       JSON.parse(lsCartMain || "").forEach((item: ICartItems) => {
@@ -286,6 +288,58 @@ class Product implements IItemClass {
         localStorage.setItem("cart-storage", JSON.stringify(newArr || ""));
       } else {
         secondBtn.innerHTML = "from cart";
+      }
+      const fullPrice = <HTMLElement>(
+        document.querySelector(".header__cost>span")
+      );
+      const currItems = <HTMLElement>(
+        document.querySelector(".basket__basket-amount")
+      );
+      totalPrice(fullPrice);
+      addAllAmount(currItems);
+    });
+
+    btnBuy.addEventListener("click", () => {
+      const lsCart = localStorage.getItem("cart-storage");
+      if (secondBtn.classList.contains("active")) {
+        window.location.assign(`${window.location.origin}/#/cart`);
+        const mainBuy = <HTMLElement>document.querySelector(".cost__body-buy");
+        setTimeout(() => mainBuy.click(), 0);
+      } else {
+        if (!lsCart) {
+          const arrItemsCart: ICartItems[] = [];
+          const objItemsCart: ICartItems = {
+            id: this._id,
+            count: 1,
+            stock: this._stock,
+            price: this._price,
+          };
+          arrItemsCart.push(objItemsCart);
+          localStorage.setItem("cart-storage", JSON.stringify(arrItemsCart));
+          window.location.assign(`${window.location.origin}/#/cart`);
+          const mainBuy = <HTMLElement>(
+            document.querySelector(".cost__body-buy")
+          );
+          setTimeout(() => mainBuy.click(), 0);
+        } else {
+          const objItemsCart: ICartItems = {
+            id: this._id,
+            count: 1,
+            stock: this._stock,
+            price: this._price,
+          };
+          const addItem = JSON.parse(
+            localStorage.getItem("cart-storage") || ""
+          );
+          addItem.push(objItemsCart);
+          localStorage.setItem("cart-storage", JSON.stringify(addItem));
+          window.location.assign(`${window.location.origin}/#/cart`);
+          const mainBuy = <HTMLElement>(
+            document.querySelector(".cost__body-buy")
+          );
+          setTimeout(() => mainBuy.click(), 0);
+        }
+        secondBtn.classList.add("active");
       }
       const fullPrice = <HTMLElement>(
         document.querySelector(".header__cost>span")
