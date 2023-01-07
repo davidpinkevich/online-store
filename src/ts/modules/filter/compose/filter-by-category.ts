@@ -4,7 +4,6 @@ import { filterStore } from "../data/filter-store";
 export const filterByCategory: TCompose = (
   data: TGoodsData[]
 ): TGoodsData[] => {
-  //---------если не получится, оставить это----------
   if (filterStore.categories.length === 0) return data;
 
   return filterStore.categories

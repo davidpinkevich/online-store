@@ -1,6 +1,5 @@
 import { TGoodsData } from "../../../types/types";
 import Checkbox from "./Checkbox";
-// import { goodsData } from "../../data/goods-data";
 
 export const createСategoriesCheckbox = (data: TGoodsData[]): void => {
   const set: Set<string> = new Set(data.map((brand) => brand.category));

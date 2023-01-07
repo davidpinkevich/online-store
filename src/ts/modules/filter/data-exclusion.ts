@@ -1,6 +1,5 @@
 import { TGoodsData } from "../../types/types";
 import { filterStore } from "./data/filter-store";
-// import { addQueryString } from "./query/create-query-string";
 
 export const dataExclusion = (data: TGoodsData[]): void => {
   const brandsCheckbox: NodeListOf<HTMLElement> = document.querySelectorAll(
@@ -8,9 +7,7 @@ export const dataExclusion = (data: TGoodsData[]): void => {
   );
   const brandsCheckboxLabel: NodeListOf<HTMLElement> =
     document.querySelectorAll(".filter__brand .checkbox label .first__items");
-  // const categotyCheckbox: NodeListOf<HTMLElement> = document.querySelectorAll(
-  //   ".filter__category .checkbox"
-  // );
+
   const arr: TGoodsData[] = [];
   filterStore.categories.forEach((miniItem: string) => {
     data.forEach((item: TGoodsData) => {
@@ -45,7 +42,6 @@ export const dataExclusion = (data: TGoodsData[]): void => {
     });
   }
   // попытка изменить кол-во товаров в бренде
-  // const miniData = document.querySelectorAll(".product");
 
   brandsCheckboxLabel.forEach((a) => {
     let curr = 0;
@@ -80,9 +76,6 @@ export const dataExclusion = (data: TGoodsData[]): void => {
     document.querySelectorAll(
       ".filter__category .checkbox label p .first__items"
     );
-  // const brandsCheckbox: NodeListOf<HTMLElement> = document.querySelectorAll(
-  //   ".filter__brand .checkbox"
-  // );
   const arr1: TGoodsData[] = [];
   filterStore.brands.forEach((miniItem: string) => {
     data.forEach((item: TGoodsData) => {
@@ -117,7 +110,6 @@ export const dataExclusion = (data: TGoodsData[]): void => {
     });
   }
 
-  // попытка добавитб кол-во товаров для категорий
   categoryCheckboxLabel.forEach((a) => {
     let curr = 0;
     arrForNumber1.forEach((b) => {
@@ -142,7 +134,7 @@ export const dataExclusion = (data: TGoodsData[]): void => {
       if (numb === 0) a.classList.add("disabled");
     });
   }
-  // попытка двигать
+
   const arrStock: number[] = [];
   data.forEach((item: TGoodsData) => {
     arrStock.push(item.stock);
@@ -152,19 +144,4 @@ export const dataExclusion = (data: TGoodsData[]): void => {
   data.forEach((item: TGoodsData) => {
     arrPrice.push(item.price);
   });
-
-  // для Stock
-  // const stockMin = Math.min(...arrStock);
-  // const stockMax = Math.max(...arrStock);
-  // // для Price
-  // const priceMin = Math.min(...arrPrice);
-  // const priceMax = Math.max(...arrPrice);
-
-  // addQueryString("stock", `${stockMin}↕${stockMax}`);
-  // addQueryString("price", `${priceMin}↕${priceMax}`);
-
-  // if (data.length === 0) {
-  //   addQueryString("stock", `${2}↕${150}`);
-  //   addQueryString("price", `${10}↕${1749}`);
-  // }
 };
