@@ -31,9 +31,8 @@ export function createModalWindow(): void {
           <input type="number" class="modal__card-number-four" required>
         </div>
         <div class="modal__card-footer">
-          <input type="number" min="1" max="12" class="modal__card-footer-month" placeholder="Month" required>
-          <input type="number" class="modal__card-footer-year" placeholder="Year" required>
-          <input type="number" class="modal__card-footer-cvv" placeholder="cvv" required>
+          <input class="modal__card-footer-month" placeholder="MM/YY" required>
+          <input type="number" class="modal__card-footer-cvv" placeholder="CVV" required>
         </div>
       </div>
       <div class="modal__card-number_error"></div>

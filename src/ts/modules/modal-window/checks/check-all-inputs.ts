@@ -44,9 +44,6 @@ export const checkAllInputs = () => {
   const month = document.querySelector(
     ".modal__card-footer-month"
   ) as HTMLInputElement;
-  const year = document.querySelector(
-    ".modal__card-footer-year"
-  ) as HTMLInputElement;
   const fieldError = document.querySelector(
     ".modal__card-footer-field_error"
   ) as HTMLDivElement;
@@ -109,12 +106,6 @@ export const checkAllInputs = () => {
   if (month.value === "") {
     month.classList.remove("successfully");
     month.classList.add("fail");
-    fieldError.innerHTML = "Invalid date";
-  }
-
-  if (year.value === "") {
-    year.classList.remove("successfully");
-    year.classList.add("fail");
     fieldError.innerHTML = "Invalid date";
   }
 

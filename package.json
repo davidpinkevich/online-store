@@ -44,6 +44,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "imask": "^6.4.3",
     "navigo": "^8.11.1"
   }
 }
