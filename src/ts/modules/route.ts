@@ -122,7 +122,7 @@ router
     root.innerHTML = `<div class="good __container"></div>`;
     if (id) {
       const num = +id;
-      if (num > 100) {
+      if (num <= 0 || num > 100 || isNaN(num)) {
         root.innerHTML = `
         <div class="error __container">
         <img src="https://img.freepik.com/free-vector/oops-404-error-with-a-broken-robot-concept-illustration_114360-5529.jpg?w=2000"
