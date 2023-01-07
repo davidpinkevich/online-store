@@ -4,8 +4,10 @@ import { filterByCategory } from "./filter-by-category";
 import { filterByPrice } from "./filter-by-price";
 import { filterBySearch } from "./filter-by-search";
 import { filterByStock } from "./filter-by-stock";
-import { sortByRating } from "./sort-by-rating";
-import { sortByPrice } from "./sort-by-price";
+import { sortByRatingMax } from "./sort-by-rating-max";
+import { sortByRatingMin } from "./sort-by-rating-min";
+import { sortByPriceMax } from "./sort-by-price-max";
+import { sortByPriceMin } from "./sort-by-price-min";
 import { sortByStock } from "./sort-by-stock";
 
 const compose =
@@ -14,8 +16,10 @@ const compose =
     fns.reduceRight((acc, fn) => fn(acc), data);
 
 export const myCompose = compose(
-  sortByRating,
-  sortByPrice,
+  sortByRatingMax,
+  sortByRatingMin,
+  sortByPriceMax,
+  sortByPriceMin,
   sortByStock,
   filterByCategory,
   filterByBrand,

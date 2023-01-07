@@ -10,12 +10,9 @@ import { rangeExclusion } from "./data-range";
 export const filterGoods = () => {
   readQueryString();
   const data: TGoodsData[] = myCompose(goodsData);
-  // rangeExclusion(data);
-  // dataEXclusion(data);
 
   dataExclusion(data);
   rangeExclusion(data);
-
   // очищаем блок на каждое действие и отрисовывем
   const body = <HTMLElement>document.querySelector(".main__items-body");
   body.innerHTML = "";

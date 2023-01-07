@@ -1,6 +1,4 @@
 import { TGoodsData } from "../../types/types";
-// import { addQueryString } from "./query/create-query-string";
-// import { filterStore } from "./data/filter-store";
 
 export function rangeExclusion(data: TGoodsData[]): void {
   const arrStock: number[] = [];

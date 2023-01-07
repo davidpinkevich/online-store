@@ -5,10 +5,6 @@ import { addAllAmount } from "./cart/total-amount";
 import { changeView } from "./change-view/change-view";
 
 export function createAllItems(items: TGoodsData[]): void {
-  // const parent = document.querySelector(".main__items-body") as HTMLDivElement;
-  // parent.innerHTML = "";
-  // смена вида всех элементов-----------
-
   items.forEach((item) => {
     new Product(item).createItem(
       `${window.location.search ? "#" : ""}/good/${item.id}`,

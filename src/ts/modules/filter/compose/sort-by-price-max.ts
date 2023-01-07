@@ -1,10 +1,10 @@
 import { TCompose, TGoodsData } from "../../../types/types";
 import { filterStore } from "../data/filter-store";
 
-export const sortByPrice: TCompose = (data: TGoodsData[]): TGoodsData[] => {
-  if (filterStore.sort === "price") {
+export const sortByPriceMax: TCompose = (data: TGoodsData[]): TGoodsData[] => {
+  if (filterStore.sort === "pricemax") {
     data.sort((first: TGoodsData, next: TGoodsData) => {
-      return next.price - first.price;
+      return first.price - next.price;
     });
   }
   return data;

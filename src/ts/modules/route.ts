@@ -11,9 +11,10 @@ import {
 import filterHandler from "./filter/checkbox/filter-checbox";
 import multiRange from "./filter/range/multi-range";
 import { filterSearch } from "./filter/search/filter-search";
-import { sortRating } from "./filter/sort/sort-rating";
-import { sortPrice } from "./filter/sort/sort-price";
-import { sortStock } from "./filter/sort/sort-stock";
+import { sortRatingMax } from "./filter/sort/sort-rating-max";
+import { sortRatingMin } from "./filter/sort/sort-rating-min";
+import { sortPriceMax } from "./filter/sort/sort-price-max";
+import { sortPriceMin } from "./filter/sort/sort-price-min";
 import { changeViewItems } from "./change-view/ls-change-for-view";
 import { changeView } from "./change-view/change-view";
 import { filterGoods } from "./filter/filter-goods";
@@ -83,9 +84,10 @@ router
     <div class="main__items">
         <div class="main__items-search search">
             <div class="search__btn">
-                <button class="search__btn-rating">sort by rating</button>
-                <button class="search__btn-price">sort by price</button>
-                <button class="search__btn-stock">sort by stock</button>
+                <button class="search__btn-rating-max">to max rating</button>
+                <button class="search__btn-rating-min">to min rating</button>
+                <button class="search__btn-price-max">to max price</button>
+                <button class="search__btn-price-min">to min price</button>
             </div>
             <p class="search__amount">Products found: <span>0</span></p>
             <div class="search__body"><input class ="search-input" type="text" placeholder="Search"></div>
@@ -103,9 +105,10 @@ router
     filterHandler();
     multiRange();
     filterSearch();
-    sortRating();
-    sortPrice();
-    sortStock();
+    sortRatingMax();
+    sortRatingMin();
+    sortPriceMax();
+    sortPriceMin();
     activeFilters();
     filterGoods();
     changeViewItems();

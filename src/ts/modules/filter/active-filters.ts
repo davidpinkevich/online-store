@@ -8,14 +8,17 @@ export const activeFilters = (): void => {
   const brandsCheckbox: NodeListOf<HTMLInputElement> =
     document.querySelectorAll(".filter__brand .checkbox__input");
   const inputSearch = <HTMLInputElement>document.querySelector(".search-input");
-  const inputRating = <HTMLButtonElement>(
-    document.querySelector(".search__btn-rating")
+  const inputRatingMax = <HTMLButtonElement>(
+    document.querySelector(".search__btn-rating-max")
   );
-  const inputPrice = <HTMLButtonElement>(
-    document.querySelector(".search__btn-price")
+  const inputRatingMin = <HTMLButtonElement>(
+    document.querySelector(".search__btn-rating-min")
   );
-  const inputStock = <HTMLButtonElement>(
-    document.querySelector(".search__btn-stock")
+  const inputPriceMax = <HTMLButtonElement>(
+    document.querySelector(".search__btn-price-max")
+  );
+  const inputPriceMin = <HTMLButtonElement>(
+    document.querySelector(".search__btn-price-min")
   );
   const rangeStock: NodeListOf<HTMLInputElement> = document.querySelectorAll(
     ".filter__stock input"
@@ -62,37 +65,60 @@ export const activeFilters = (): void => {
 
   inputSearch.value = filterStore.search;
 
-  if (filterStore.sort === "stock") {
-    inputRating.classList.remove("active");
-    inputRating.disabled = false;
+  if (filterStore.sort === "ratingmax") {
+    inputRatingMax.classList.add("active");
+    inputRatingMax.disabled = true;
 
-    inputPrice.classList.remove("active");
-    inputPrice.disabled = false;
+    inputRatingMin.classList.remove("active");
+    inputRatingMin.disabled = false;
 
-    inputStock.classList.add("active");
-    inputStock.disabled = true;
+    inputPriceMax.classList.remove("active");
+    inputPriceMax.disabled = false;
+
+    inputPriceMin.classList.remove("active");
+    inputPriceMin.disabled = false;
   }
 
-  if (filterStore.sort === "price") {
-    inputRating.classList.remove("active");
-    inputRating.disabled = false;
+  if (filterStore.sort === "ratingmin") {
+    inputRatingMax.classList.remove("active");
+    inputRatingMax.disabled = false;
 
-    inputPrice.classList.add("active");
-    inputPrice.disabled = true;
+    inputRatingMin.classList.add("active");
+    inputRatingMin.disabled = true;
 
-    inputStock.classList.remove("active");
-    inputStock.disabled = false;
+    inputPriceMax.classList.remove("active");
+    inputPriceMax.disabled = false;
+
+    inputPriceMin.classList.remove("active");
+    inputPriceMin.disabled = false;
   }
 
-  if (filterStore.sort === "rating") {
-    inputRating.classList.add("active");
-    inputRating.disabled = true;
+  if (filterStore.sort === "pricemax") {
+    inputRatingMax.classList.remove("active");
+    inputRatingMax.disabled = false;
 
-    inputPrice.classList.remove("active");
-    inputPrice.disabled = false;
+    inputRatingMin.classList.remove("active");
+    inputRatingMin.disabled = false;
 
-    inputStock.classList.remove("active");
-    inputStock.disabled = false;
+    inputPriceMax.classList.add("active");
+    inputPriceMax.disabled = true;
+
+    inputPriceMin.classList.remove("active");
+    inputPriceMin.disabled = false;
+  }
+
+  if (filterStore.sort === "pricemin") {
+    inputRatingMax.classList.remove("active");
+    inputRatingMax.disabled = false;
+
+    inputRatingMin.classList.remove("active");
+    inputRatingMin.disabled = false;
+
+    inputPriceMax.classList.remove("active");
+    inputPriceMax.disabled = false;
+
+    inputPriceMin.classList.add("active");
+    inputPriceMin.disabled = true;
   }
 
   rangeStock[0].value = `${filterStore.minStock}`;

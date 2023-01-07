@@ -3,7 +3,6 @@ import { IItemClass } from "../types/types";
 import { ICartItems } from "../types/types";
 import { totalPrice } from "./cart/total-cost";
 import { addAllAmount } from "./cart/total-amount";
-// import { createModalWindow } from "./modal-window/add-window";
 
 class Product implements IItemClass {
   public _id: number;
