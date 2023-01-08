@@ -16,11 +16,6 @@ export const checkName = () => {
       textError = "Full name must be at least 2 words";
     }
     arr.forEach((word) => {
-      const upper = word.toUpperCase();
-      if (!(upper[0] === word[0])) {
-        flag += 1;
-        textError = "Full name must start with a capital letter";
-      }
       if (word.length < 3) {
         flag += 1;
         textError = "Full name must contain at least 3 characters";
