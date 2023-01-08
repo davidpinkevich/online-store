@@ -2,7 +2,7 @@ import { TCompose, TGoodsData } from "../../../types/types";
 import { filterStore } from "../data/filter-store";
 
 export const filterBySearch: TCompose = (data: TGoodsData[]): TGoodsData[] => {
-  const src = filterStore.search.toLowerCase();
+  const src = filterStore.search.toLowerCase().trim();
   const newArr: TGoodsData[] = [];
 
   data.forEach((item: TGoodsData) => {
