@@ -1,11 +1,13 @@
-import { TCompose, TGoodsData } from "../../../types/types";
+import { TGoodsData } from "../../../types/types";
 import { filterStore } from "../data/filter-store";
 
-export const sortByPriceMax: TCompose = (data: TGoodsData[]): TGoodsData[] => {
-  if (filterStore.sort === "pricemax") {
-    data.sort((first: TGoodsData, next: TGoodsData) => {
-      return first.price - next.price;
-    });
+export function sortByPriceMax<T>(data: T): T {
+  if (Array.isArray(data)) {
+    if (filterStore.sort === "pricemax") {
+      data.sort((first: TGoodsData, next: TGoodsData) => {
+        return first.price - next.price;
+      });
+    }
   }
   return data;
-};
+}
