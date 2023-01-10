@@ -8,7 +8,7 @@ export const activateBtn = () => {
     const successfullyEl: NodeListOf<HTMLInputElement> =
       document.querySelectorAll(".successfully");
 
-    if (successfullyEl.length === 11) {
+    if (successfullyEl.length === 10) {
       e.preventDefault();
       confirmForm(e);
     } else {
