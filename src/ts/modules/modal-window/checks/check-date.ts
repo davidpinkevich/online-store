@@ -22,6 +22,10 @@ export const checkDate = () => {
       flag += 1;
     }
 
+    if (arr.length < 2) {
+      flag += 1;
+    }
+
     if (flag === 0) {
       month.classList.add("successfully");
       month.classList.remove("fail");
