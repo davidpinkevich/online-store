@@ -1,0 +1,242 @@
+.shadow {
+    position: fixed;
+    height: 100%;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.5;
+        z-index: 5;
+        background: black;
+    }
+}
+
+.modal {
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    top: 10%;
+    left: calc(50% - 500px / 2);
+    width: 500px;
+    border-radius: 12px;
+    background-color: $mainBackground;
+    box-shadow: 0px 0px 3px 3px $mainColor;
+    text-shadow: 2px 2px 2px black;
+    padding: 20px 40px;
+}
+
+
+.modal__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.modal__body-name_error,
+.modal__body-phone_error,
+.modal__body-address_error,
+.modal__body-email_error,
+.modal__card-number_error,
+.modal__card-footer-field_error,
+.modal__card-footer-cvv_error {
+    margin: 0;
+    color: red;
+    font-size: $secondSize;
+}
+
+.modal__card-number_error,
+.modal__card-footer-field_error,
+.modal__card-footer-cvv_error {
+    margin-bottom: 10px;
+}
+
+.modal__title,
+.modal__title-card {
+    color: $secondColor;
+    font-size: $mainSize;
+    margin-bottom: 10px;
+}
+
+.modal__body-name,
+.modal__body-phone,
+.modal__body-address,
+.modal__body-email {
+    font-size: 24px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: inherit;
+    color: $mainColor;
+    box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.3s;
+
+    &:focus {
+      box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+}
+
+.modal__card {
+    border-radius: 12px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    height: 200px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.2s;
+
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        border-radius: 12px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.7;
+        z-index: 5;
+        background: black;
+    }
+}
+
+.modal__card-footer {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+.modal__card-footer-month,
+.modal__card-footer-year,
+.modal__card-footer-cvv {
+  font-size: 24px;
+  width: 100%;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: inherit;
+  color: $mainColor;
+  box-shadow: inset 0px 0px 3px 3px black;
+  transition: all 0.3s;
+
+    &:focus {
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+//----------------------------------------------
+.modal__card-number {
+  font-size: 24px;
+  border-radius: 8px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: inherit;
+  color: $mainColor;
+  box-shadow: inset 0px 0px 3px 3px black;
+  transition: all 0.3s;
+
+  &:focus {
+      box-shadow: inset 0px 0px 3px 3px $mainColor;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+}
+
+.modal__card-wrap {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+}
+.modal__card-number-one,
+.modal__card-number-two,
+.modal__card-number-three,
+.modal__card-number-four {
+    width: 85px;
+    font-size: 24px;
+    border-radius: 8px;
+    text-align: center;
+    padding: 5px 10px;
+    background-color: inherit;
+    color: $mainColor;
+    box-shadow: inset 0px 0px 3px 3px black;
+    transition: all 0.3s;
+
+    &:focus {
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+.fail {
+    box-shadow: inset 0px 0px 3px 3px red;
+    color: red;
+}
+.successfully {
+    box-shadow: inset 0px 0px 3px 3px $secondColor;
+    color: $secondColor;
+}
+
+.visa {
+    border-radius: 12px;
+    background: url("../images/visa.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.ms {
+    border-radius: 12px;
+    background: url("../images/ms.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.ae {
+    border-radius: 12px;
+    background: url("../images/ae.png") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.gold {
+    border-radius: 12px;
+    background: url("../images/gold.jpg") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.mod__info {
+    font-size: 30px;
+    color: $secondColor;
+    text-align: center;
+}

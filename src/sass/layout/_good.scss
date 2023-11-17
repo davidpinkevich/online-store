@@ -1,0 +1,198 @@
+.good {
+    text-shadow: 2px 2px 2px black;
+    min-height: 45vh;
+    padding-top: 10px;
+
+    &__navigation {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    span {
+        display: block;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    
+    &__store {
+        text-decoration: none;
+        border-radius: 12px;
+        box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
+        padding: 10px 60px;
+        & a {
+            color: $secondColor;
+        }
+        transition: all 0.3s;
+        &:hover {
+            transform: scale(1.03);
+            box-shadow: inset 0px 0px 3px 3px $mainColor;
+        }
+    }
+
+    &__category {
+        color: $secondColor;
+        border-radius: 12px;
+        box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
+        padding: 10px 60px;
+    }
+
+    &__brand {
+        color: $secondColor;
+        border-radius: 12px;
+        box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
+        padding: 10px 60px;
+    }
+
+    &__model {
+        color: $secondColor;
+        border-radius: 12px;
+        box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
+        padding: 10px 60px;
+    }
+
+    &__more {
+        color: $mainColor;
+        border-radius: 12px;
+        box-shadow: inset 0px 0px 3px 3px black;
+        background-color: rgb(32, 29, 29);
+        padding: 10px 20px;
+    }
+
+    &-item {
+        // min-height: 450px;
+        margin-top: 25px;
+        border-radius: 12px;
+
+        h1 {
+            padding: 10px 0 10px 0;
+            font-size: $mainSize;
+            text-align: center;
+            color: $secondColor;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            box-shadow: inset 0px 0px 3px 3px black;
+            background-color: inherit;
+        }
+
+        &__content {
+            display: flex;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: inset 0px 0px 3px 3px black;
+            background-color: inherit;
+        }
+
+        &__photos {
+            width: 500px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__photo {
+            display: block;
+            width: 400px;
+            height: 215px;
+            box-shadow: 0px 0px 3px 3px black;
+            border-radius: 8px;
+
+            &-small {
+                width: 115px;
+                height: 62px;
+                box-shadow: 0px 0px 3px 3px black;
+                border-radius: 8px;
+                cursor: pointer;
+                margin-right: 5px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            &-active {
+                box-shadow: 0 0 3px 3px $secondColor;
+                border-radius: 8px;
+            }
+        }
+
+        &__slides {
+            margin-top: 30px;
+        }
+
+        &__descr {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            text-align: center;
+            gap: 10px;
+
+            hr {
+                width: 600px;
+            }
+
+        }
+
+        &__name {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            padding: 5px 25px;
+            width: 500px;
+            // height: 60px;
+            box-shadow: inset 0px 0px 3px 3px black;
+            background-color: rgb(32, 29, 29);
+            border-radius: 12px;
+            color: $mainColor;
+            font-size: 24px;
+            &-scroll p {
+                padding: 10px;
+                height: 65px;
+                overflow: scroll;
+                &::-webkit-scrollbar {
+                    width: 0px;
+                }
+            }
+        }
+
+        h2 {
+            padding: 5px;
+            color: $secondColor;
+        }
+
+        p {
+            padding-top: 5px;
+            font-size: 22px;
+        }
+
+        &__control {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        &__price {
+            color: $secondColor;
+            font-size: 48px;
+        }
+    }
+}
+
+.good-item__main-photo {
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.05);
+    }
+}

@@ -1,0 +1,32 @@
+.error {
+    min-height: 75vh;
+    text-align: center;
+    color: $mainColor;
+    padding-top: 44px;
+    box-shadow: 0px 0px 3px 3px black;
+    border-radius: 8px;
+
+    &__img {
+        width: 300px;
+        box-shadow: 0 0 3px 3px $secondColor;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 32px;
+        margin-top: 15px;
+    }
+
+    &__link {
+        display: block;
+        text-decoration: underline;
+        color: $secondColor;
+        font-size: 32px;
+        margin-top: 120px;
+    }
+}

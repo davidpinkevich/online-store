@@ -1,0 +1,408 @@
+.main {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 75vh;
+    gap: 10px;
+
+    @media (max-width:800px){
+        flex-direction: column;
+    }
+}
+
+// левая панель с фильтрами
+.filter {
+    flex: 0 0 200px;
+    color: $mainColor;
+    text-shadow: 2px 2px 2px black;
+
+    &>*:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    &__stock-title {
+        text-align: center;
+        font-size: 30px;
+        color: $secondColor;
+    }
+
+    &__price-title {
+        text-align: center;
+        font-size: 30px;
+        color: $secondColor;
+    }
+
+    .slider {
+        margin-top: 20px;
+        height: 5px;
+        border-radius: 5px;
+        background: #ddd;
+        position: relative;
+        box-shadow: 0px 0px 3px 3px black;
+    }
+
+    .slider .progress {
+        height: 5px;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        border-radius: 5px;
+        background: $secondColor;
+        box-shadow: 0px 0px 3px 3px black;
+    }
+
+    .range-input {
+        position: relative;
+    }
+
+    .range-input input {
+        position: absolute;
+        top: -6px;
+        height: 5px;
+        width: 100%;
+        pointer-events: none;
+        background: none;
+        appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        height: 22px;
+        width: 22px;
+        border-radius: 50%;
+        appearance: none;
+        border: none;
+        pointer-events: auto;
+        background: $secondColor;
+        box-shadow: inset 0px 0px 3px 3px black;
+    }
+
+    .checkbox {
+        position: relative;
+        transition: all 0.1s;
+        &:hover {
+          color: $secondColor;
+        }
+    }
+
+    .checkbox__input {
+        transition: all 0.2s;
+        appearance: none;
+        position: absolute;
+    }
+
+    .checkbox__label {
+        font-size: 18px;
+        padding-left: 30px;
+        display: flex;
+        gap: 5px;
+        justify-content: space-between;
+    }
+
+    .checkbox__label:before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: rgb(69, 63, 63);
+        box-shadow: inset 0px 0px 3px 3px black;
+        &::first-letter {
+          text-transform: uppercase;
+      }
+    }
+
+    .checkbox__label::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 5px;
+        background: url("./../icons/check.png") no-repeat;
+        transform: scale(0.8);
+        width: 16px;
+        height: 16px;
+        opacity: 0;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        z-index: 2;
+    }
+
+    .checkbox__input:checked+.checkbox__label:before {
+      transition: all 0.2s;
+      box-shadow: inset 0px 0px 2px 2px black;
+    }
+
+    .checkbox__input:checked+.checkbox__label:after {
+        opacity: 1;
+    }
+
+    .checkbox__input:checked+.checkbox__label {
+        color: $secondColor;
+    }
+
+    &__stock {
+
+        &-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    }
+
+
+    &__price {
+
+        &-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    }
+
+}
+
+// попытка изменять все критерии фильтрации динамически
+.checkbox.disabled {
+    color: rgb(101, 95, 95);
+    // pointer-events: none;
+}
+//-----------------------------------------------
+
+.lel {
+    color: $mainColor;
+}
+
+.filter__category {
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
+
+    &-items {
+      cursor: pointer;
+        height: 200px;
+        overflow-y: scroll;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0px 8px;
+        &::-webkit-scrollbar {
+            border-radius: 8px;
+            width: 12px;
+            background-color: rgb(31, 30, 30);
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $secondColor;
+            border-radius: 8px;
+            box-shadow: inset 0px 0px 4px 4px black;
+        }
+    }
+
+    &-title {
+        font-size: $mainSize;
+        margin-bottom: 10px;
+        text-align: center;
+        color: $secondColor;
+    }
+}
+
+.filter__brand {
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: inset 0px 0px 3px 3px black;
+    text-shadow: 2px 2px 2px black;
+
+    &-items {
+        height: 200px;
+        overflow-y: scroll;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0px 8px;
+        &::-webkit-scrollbar {
+          border-radius: 8px;
+          width: 12px;
+          background-color: rgb(31, 30, 30);
+      }
+      &::-webkit-scrollbar-thumb {
+          background-color: $secondColor;
+          border-radius: 8px;
+          box-shadow: inset 0px 0px 4px 4px black;
+      }
+    }
+
+    &-title {
+        font-size: $mainSize;
+        margin-bottom: 10px;
+        text-align: center;
+        color: $secondColor;
+    }
+}
+
+// правый блок, где будут все карточки
+.main__items {
+    flex: 1 1 auto;
+    color: $mainColor;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+
+    &-search {
+        box-shadow: inset 0px 0px 3px 3px black;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    &-body {
+        box-shadow: inset 0px 0px 3px 3px black;
+        border-radius: 8px;
+        padding: 20px;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 260px;
+        gap: 20px;
+
+        @media (max-width: $md2){
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 850px){
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 400px){
+          grid-template-columns: repeat(1, 1fr);
+        }
+
+        &.not-found {
+            display: flex;
+            justify-content: center;
+            font-size: 40px;
+            text-shadow: 2px 2px 2px black;
+        }
+
+        &.active {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: 160px;
+            gap: 15px;
+
+            @media (max-width:$md2){
+              grid-template-columns: repeat(4, 1fr);
+            }
+
+            @media (max-width:1200px){
+              grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media (max-width:800px){
+              grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width: 400px){
+              grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    @media (max-width: 1200px){
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    @media (max-width: 550px){
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 5px;
+      // grid-template-rows: repeat(2, 1fr);
+  }
+}
+.search-input {
+    box-shadow: inset 0px 0px 3px 3px black;
+    background-color: inherit;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+    font-size: $secondSize;
+    transition: all 0.3s;
+    color: $mainColor;
+    text-shadow: 2px 2px 2px black;
+
+    @media (max-width: 1200px){
+        width: 100%;
+    }
+    &:focus {
+        box-shadow: inset 0px 0px 3px 3px $mainColor;
+    }
+}
+
+.search__change {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.search__change-one,
+.search__change-two {
+    position: relative;
+    font-size: $mainSize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.search__change-one {
+    background: url("../icons/big.svg") center center/cover no-repeat;
+}
+.search__change-two {
+    background: url("../icons/small.svg") center center/cover no-repeat;
+}
+
+.search__change-one_active,
+.search__change-two_active {
+    transform: scale(1.15);
+    filter: invert(100%);
+}
+
+.search__amount {
+  text-shadow: 2px 2px 2px black;
+  font-size: $secondSize;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1100px){
+    padding: 5px;
+  }
+  & span {
+    padding-left: 5px;
+  }
+}

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+body {
+  font-family: 'Kanit', sans-serif;
+    display: flex;
+    gap: 10px;
+    padding: 0 15px;
+    flex-direction: column;
+    background-color: $mainBackground;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      border-radius: 10px;
+      width: 24px;
+      background-color: rgb(31, 30, 30);
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: $secondColor;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 6px 6px black;
+  }
+}
+[class*="__container"]{
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+

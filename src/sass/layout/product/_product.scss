@@ -1,0 +1,132 @@
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $mainColor;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 10px;
+  width: 100%;
+  height: 260px;
+  box-shadow: 0px 0px 3px 3px black;
+  text-shadow: 2px 2px 2px black;
+  transition-duration: 0.2s;
+  transition-property: transform;
+
+  @media (max-width:1200px){
+      // @include adaptiv-320(width, 260, 100);
+      width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 3px 3px white;
+    transform: scale(1.03);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    border-radius: 12px;
+    opacity: 0.4;
+    z-index: -1;
+  }
+  &__main-img {
+    border-radius: 12px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+  }
+  & span {
+    color: $secondColor;
+    text-shadow: none;
+    font-weight: 700;
+  }
+}
+
+.product.active {
+    width: 100%;
+    height: 160px;
+    padding: 5px;
+    & .description__block {
+      display: none;
+    }
+
+    & .buttons__body {
+        width: 100%;
+        gap: 5px;
+    }
+    & .button__body-add {
+        flex: 1 1 auto;
+    }
+
+    & .button__body-info {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+}
+.product__title {
+  font-size: 18px;
+  color: $secondColor;
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 2px black;
+}
+
+.product__main {
+  display: flex;
+  gap: 5px;
+  @media (max-width:1250px){
+    flex-direction: column;
+  }
+}
+
+.description__block {
+  position: relative;
+  box-shadow: inset 0px 0px 3px 3px black;
+  text-shadow: 2px 2px 2px black;
+  padding: 10px;
+  border-radius: 10px;
+
+  & > *:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    border-radius: 12px;
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
+
+.buttons__body {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (max-width:1100px){
+    gap: 3px;
+  }
+}
+
+.description__block-price,
+.description__block-discount {
+  @media (max-width:1250px){
+    display: none;
+  }
+}
